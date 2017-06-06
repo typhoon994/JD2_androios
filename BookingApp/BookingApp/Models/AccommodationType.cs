@@ -6,18 +6,18 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class Place {
+{
+    public class AccommodationType {
 
 		private int id;
 		private string name;
 		public List<Accommodation> m_Accommodation;
 
-		public Place(){
+		public AccommodationType(){
 
 		}
 
-		~Place(){
+		~AccommodationType(){
 
 		}
 

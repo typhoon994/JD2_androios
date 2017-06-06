@@ -6,8 +6,8 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class Room {
+{
+    public class Room {
 
 		private int bedCount;
 		private string description;

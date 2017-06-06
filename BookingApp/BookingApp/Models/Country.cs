@@ -6,19 +6,29 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class Place {
+{
+    public class Country {
 
+		private int code;
 		private int id;
 		private string name;
-		public List<Accommodation> m_Accommodation;
+		public List<Region> m_Region;
 
-		public Place(){
+		public Country(){
 
 		}
 
-		~Place(){
+		~Country(){
 
+		}
+
+		public int Code{
+			get{
+				return code;
+			}
+			set{
+				code = value;
+			}
 		}
 
 		public int Id{
@@ -30,7 +40,7 @@ namespace BookingApp.Models
 			}
 		}
 
-		public string Name{
+		public String Name{
 			get{
 				return name;
 			}

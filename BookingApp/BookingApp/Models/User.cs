@@ -4,10 +4,9 @@ using System.Text;
 using System.IO;
 
 
-
 namespace BookingApp.Models
- {
-	public class User {
+{
+    public class User {
 
 		private string email;
 		private int id;

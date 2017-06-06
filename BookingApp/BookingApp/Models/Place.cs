@@ -6,8 +6,8 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class Place {
+{
+    public class Place {
 
 		private int id;
 		private string name;

@@ -6,12 +6,12 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class RoomReservations {
+{
+    public class RoomReservations {
 
 		private string endDate;
 		private string startDate;
-		private Time timestamp;
+		private DateTime? timestamp;
 		public List<User> m_User;
 		public List<Room> m_Room;
 
@@ -41,7 +41,7 @@ namespace BookingApp.Models
 			}
 		}
 
-		public Time Timestamp{
+		public DateTime? Timestamp{
 			get{
 				return timestamp;
 			}

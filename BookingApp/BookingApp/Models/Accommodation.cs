@@ -6,8 +6,8 @@ using System.IO;
 
 
 namespace BookingApp.Models
- {
-	public class Accommodation {
+{
+    public class Accommodation {
 
 		private string address;
 		private bool approved;

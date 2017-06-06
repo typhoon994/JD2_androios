@@ -4,9 +4,10 @@ using System.Text;
 using System.IO;
 
 
+
 namespace BookingApp.Models
- {
-	public class Comment {
+{
+    public class Comment {
 
 		private int grade;
 		private string text;

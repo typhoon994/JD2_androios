@@ -5,8 +5,8 @@ using System.IO;
 
 
 
-using System;
-namespace System {
+namespace BookingApp.Models
+{
 	public class AccommodationType {
 
 		private int id;
