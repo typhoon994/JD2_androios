@@ -1,0 +1,5 @@
+DB Migration steps:
+
+1.Enable-Migrations
+2.Add-Migration "Naziv migracije"
+3.Update-Database -> Poziva seed() metodu;
