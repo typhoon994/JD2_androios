@@ -2,17 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace BookingApp.Models
 {
     public class Comment {
 
+        [Key]
+        public int Id { get; set; }
 		private int grade;
 		private string text;
-		public List<User> m_User;
-		public List<Accommodation> m_Accommodation;
+		public User User;
+		public Accommodation Accommodation;
 
 		public Comment(){
 
@@ -24,19 +25,19 @@ namespace BookingApp.Models
 
 		public int Grade{
 			get{
-				return Grade;
+				return grade;
 			}
 			set{
-				Grade = value;
+				grade = value;
 			}
 		}
 
 		public string Text{
 			get{
-				return Text;
+				return text;
 			}
 			set{
-				Text = value;
+				text = value;
 			}
 		}
 
