@@ -2,18 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingApp.Models
 {
     public class Region {
+ 
+        public int Id { get; set; }
+        private string name;
 
-		private int id;
-		private string name;
-		public List<Place> m_Place;
+        [Required]
+        public Country country { get; set; }
+        public List<Place> m_Place { get; set; }
 
-		public Region(){
+
+        public Region(){
 
 		}
 
@@ -21,14 +25,6 @@ namespace BookingApp.Models
 
 		}
 
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
-		}
 
 		public String Name{
 			get{

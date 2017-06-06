@@ -2,17 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingApp.Models
 {
     public class Country {
 
 		private int code;
-		private int id;
-		private string name;
-		public List<Region> m_Region;
+        public int Id { get; set; }
+        private string name;
+        public List<Region> m_Region { get; set; }
 
 		public Country(){
 
@@ -31,14 +31,6 @@ namespace BookingApp.Models
 			}
 		}
 
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
-		}
 
 		public String Name{
 			get{

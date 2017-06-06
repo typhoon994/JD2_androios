@@ -2,26 +2,36 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingApp.Models
 {
     public class Accommodation {
 
-		private string address;
+        public int Id { get; set; }
+        private string address;
 		private bool approved;
 		private float averageGrade;
 		private string description;
-		private int id;
-		private string imageURL;
+        private string imageURL;
 		private double latitude;
 		private double longitude;
 		private string name;
-		public List<Comment> m_Comment;
-		public List<Room> m_Room;
 
-		public Accommodation(){
+        public List<Comment> m_Comment { get; set; }
+
+        [Required]
+        public Accommodation accomodation { get; set; }
+
+        public List<Room> m_Room { get; set; }
+
+        [Required]
+        public Place place { get; set; }
+
+        [Required]
+        public AppUser owner { get; set; }
+        public Accommodation(){
 
 		}
 
@@ -65,14 +75,6 @@ namespace BookingApp.Models
 			}
 		}
 
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
-		}
 
 		public string ImageURL{
 			get{

@@ -5,6 +5,7 @@ namespace BookingApp.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -67,6 +68,18 @@ namespace BookingApp.Migrations
                 userManager.Create(user);
                 userManager.AddToRole(user.Id, "Admin");
             }
+
+            Country c1 = new Country();
+            c1.Code = 123;
+            c1.Name = "Srbija";
+
+            Region r1 = new Region();
+            r1.Name = "Balkan";
+            r1.country = c1;
+            r1.m_Place = new List<Place>();
+
+            context.Regions.Add(r1);
+            
         }
     }
 }

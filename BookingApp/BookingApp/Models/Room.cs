@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingApp.Models
 {
@@ -11,10 +11,13 @@ namespace BookingApp.Models
 
 		private int bedCount;
 		private string description;
-		private int id;
+        public int Id { get; set; }
 		private int pricePerNight;
 		private int roomNumber;
-		public List<RoomReservations> m_RoomReservations;
+
+        [Required]
+        public Accommodation accomodation { get; set; }
+        public List<RoomReservations> m_RoomReservations { get; set; }
 
 		public Room(){
 
@@ -42,14 +45,6 @@ namespace BookingApp.Models
 			}
 		}
 
-		public int Id{
-			get{
-				return id;
-			}
-			set{
-				id = value;
-			}
-		}
 
 		public int PricePerNight{
 			get{

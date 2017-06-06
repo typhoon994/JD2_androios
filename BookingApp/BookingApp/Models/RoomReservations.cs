@@ -8,13 +8,10 @@ namespace BookingApp.Models
 {
     public class RoomReservations {
 
-        [Key]
         public int Id { get; set; }
         private Nullable<DateTime> endDate;
 		private Nullable<DateTime> startDate;
 		private Nullable<DateTime> timestamp;
-		public User User;
-		public Room Room;
 
 		public RoomReservations(){
 

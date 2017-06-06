@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookingApp.Models
 {
     public class Comment {
 
-        [Key]
         public int Id { get; set; }
 		private int grade;
 		private string text;
-		public User User;
-		public Accommodation Accommodation;
 
+        [Required]
+        public AppUser user { get; set; }
+
+        [Required]
+        public Accommodation accomodation { get; set; }
 		public Comment(){
 
 		}
