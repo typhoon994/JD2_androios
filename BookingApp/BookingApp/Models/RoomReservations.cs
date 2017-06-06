@@ -2,18 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-
-
+using System.ComponentModel.DataAnnotations;
 
 namespace BookingApp.Models
 {
     public class RoomReservations {
 
-		private string endDate;
-		private string startDate;
-		private DateTime? timestamp;
-		public List<User> m_User;
-		public List<Room> m_Room;
+        [Key]
+        public int Id { get; set; }
+        private Nullable<DateTime> endDate;
+		private Nullable<DateTime> startDate;
+		private Nullable<DateTime> timestamp;
+		public User User;
+		public Room Room;
 
 		public RoomReservations(){
 
@@ -23,7 +24,8 @@ namespace BookingApp.Models
 
 		}
 
-		public string EndDate{
+		public Nullable<DateTime> EndDate
+        {
 			get{
 				return endDate;
 			}
@@ -32,7 +34,8 @@ namespace BookingApp.Models
 			}
 		}
 
-		public string StartDate{
+		public Nullable<DateTime> StartDate
+        {
 			get{
 				return startDate;
 			}
@@ -41,7 +44,7 @@ namespace BookingApp.Models
 			}
 		}
 
-		public DateTime? Timestamp{
+		public Nullable<DateTime> Timestamp{
 			get{
 				return timestamp;
 			}
