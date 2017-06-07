@@ -265,33 +265,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706040304228_Initial.cs" />
-    <Compile Include="Migrations\201706040304228_Initial.Designer.cs">
-      <DependentUpon>201706040304228_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706060940330_InitModel.cs" />
-    <Compile Include="Migrations\201706060940330_InitModel.Designer.cs">
-      <DependentUpon>201706060940330_InitModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061039432_FixedKeys.cs" />
-    <Compile Include="Migrations\201706061039432_FixedKeys.Designer.cs">
-      <DependentUpon>201706061039432_FixedKeys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061045576_AppUser.cs" />
-    <Compile Include="Migrations\201706061045576_AppUser.Designer.cs">
-      <DependentUpon>201706061045576_AppUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061156494_FixedKeysTry2.cs" />
-    <Compile Include="Migrations\201706061156494_FixedKeysTry2.Designer.cs">
-      <DependentUpon>201706061156494_FixedKeysTry2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061204430_FixAgain.cs" />
-    <Compile Include="Migrations\201706061204430_FixAgain.Designer.cs">
-      <DependentUpon>201706061204430_FixAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706061234002_Try23.cs" />
-    <Compile Include="Migrations\201706061234002_Try23.Designer.cs">
-      <DependentUpon>201706061234002_Try23.cs</DependentUpon>
+    <Compile Include="Migrations\201706070926490_Initial.cs" />
+    <Compile Include="Migrations\201706070926490_Initial.Designer.cs">
+      <DependentUpon>201706070926490_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
@@ -386,26 +362,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706040304228_Initial.resx">
-      <DependentUpon>201706040304228_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706060940330_InitModel.resx">
-      <DependentUpon>201706060940330_InitModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061039432_FixedKeys.resx">
-      <DependentUpon>201706061039432_FixedKeys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061045576_AppUser.resx">
-      <DependentUpon>201706061045576_AppUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061156494_FixedKeysTry2.resx">
-      <DependentUpon>201706061156494_FixedKeysTry2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061204430_FixAgain.resx">
-      <DependentUpon>201706061204430_FixAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706061234002_Try23.resx">
-      <DependentUpon>201706061234002_Try23.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706070926490_Initial.resx">
+      <DependentUpon>201706070926490_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

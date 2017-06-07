@@ -46,11 +46,11 @@ namespace BookingApp.Models
         {
             get
             {
-                return Password;
+                return password;
             }
             set
             {
-                Password = value;
+                password = value;
             }
         }
 
@@ -58,11 +58,11 @@ namespace BookingApp.Models
         {
             get
             {
-                return Username;
+                return username;
             }
             set
             {
-                Username = value;
+                username = value;
             }
         }
 

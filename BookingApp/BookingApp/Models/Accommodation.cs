@@ -21,9 +21,6 @@ namespace BookingApp.Models
 
         public List<Comment> m_Comment { get; set; }
 
-        [Required]
-        public Accommodation accomodation { get; set; }
-
         public List<Room> m_Room { get; set; }
 
         [Required]
