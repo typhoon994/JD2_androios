@@ -3,15 +3,15 @@
  */
 export class Accommondation {
   constructor(
-    public id: number,
-    public name: string,
-    public description: string,
-    public address: string,
-    public averageGrade: string,
-    public latitude: number,
-    public longitude: number,
-    public imageUrl: string,
-    public approved: boolean,
+    public Id: number,
+    public Name: string,
+ /*   public Description: string,
+    public Address: string,
+    public AverageGrade: string,
+    public Latitude: number,
+    public Longitude: number,
+    public ImageUrl: string,
+    public Approved: boolean,*/
    ) {
   }
 }

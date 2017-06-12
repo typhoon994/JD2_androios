@@ -15,7 +15,8 @@ export class UserService {
   getAccommondations(): Promise<Accommondation[]> {
     return this.http.get(this.apiUrl)
       .toPromise()
-      .then(response => response.json().data as Accommondation[])
+      .then(response => {
+          return response.json() as Accommondation[]; })
       .catch(this.handleError);
   }
 

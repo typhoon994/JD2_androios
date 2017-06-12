@@ -24,7 +24,8 @@ export class AccomondationComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getAccommondations()
-      .then((accommondations) => this.accommondations = accommondations);
+      .then((accommondations) => {   
+        this.accommondations = accommondations});
   }
 
 }
