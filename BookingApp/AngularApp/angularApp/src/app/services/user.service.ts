@@ -29,7 +29,7 @@ export class UserService {
     return this.http
       .post(this.apiUrl, JSON.stringify(accomodation), { headers: headers })
       .toPromise()
-      .then(res => res.json())
+      .then(res => res.json() as Accommondation)
       .catch(this.handleError);
     
   }
