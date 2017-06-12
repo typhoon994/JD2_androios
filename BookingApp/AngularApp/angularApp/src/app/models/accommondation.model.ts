@@ -11,6 +11,9 @@ export class Accommondation {
     public Latitude: number;
     public Longitude: number;
     public ImageUrl: string;
-    public Approved: boolean;
+    public Approved: boolean = false;
+    public Owner_Id: number = 1;
+    public Place_Id: number = 1;
+    public Accomodation_Type: number = 1;
     
 }
