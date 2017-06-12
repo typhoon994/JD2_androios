@@ -23,31 +23,53 @@ export class AppComponent {
    }
   
 
-  logIn(){
+  logIn(username:string,  password:String){
 
-var txtUsername = ""
-var txtPassword = ""
+//var txtUsername = ""
+//var txtPassword = ""
 
-window.onload = function() {
-     txtUsername = document.getElementById("username").nodeValue;
-     txtPassword = document.getElementById("password").nodeValue;
-   
-   alert(txtUsername);
-}
-
-    if (this.user1.username == txtUsername  && this.user1.password == txtPassword) {        
+   // if (this.user1.username == txtUsername  && this.user1.password == txtPassword) {        
      this.authService.logIn();
      this.router.navigate(['/userinfo']);
-   }
-   else
-   {
-     alert("User not found!");
-   }
+     var x = document.getElementById("1")
+
+     if (x.style.display === 'none')
+     {
+       x.style.display = 'block'
+     }
+     else
+     {
+       x.style.display = 'none'
+     }
+
+   //}
+   //else
+   //{
+    // alert("User not found!");
+   //}
 
    
   }
 
+  addAccomodation()
+  {
+    
+    this.router.navigate(['/']);
+
+  }
+
   logOut(){
+
+    var x = document.getElementById("1")
+    if (x.style.display === 'none')
+     {
+       x.style.display = 'block'
+     }
+     else
+     {
+       x.style.display = 'none'
+     }
+
     this.authService.logOut();
         this.router.navigate(['']);
   }

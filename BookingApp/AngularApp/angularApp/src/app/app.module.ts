@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { UserInfoComponent } from './userinfo/userinfo.component';
-
+import { AddAccomondationComponent } from './accommondation/add-accomodation.component';
+import { AccomondationComponent } from './accommondation/accommondation.component';
 import { AuthService } from './services/auth.service';
 
 import { LoggedInGuard } from './logged-in.guard'
@@ -21,6 +22,8 @@ const Routes = [
   {path: "home", component: HomeComponent, children: ChildRoutes},
   {path: "userinfo", component: UserInfoComponent, canActivate: [LoggedInGuard]},
   {path: "about/:Id", component: AboutComponent},
+  {path: "addAccomodation", component: AddAccomondationComponent},
+  {path: "getAccomodations", component: AccomondationComponent},
   {path: "other", redirectTo:"home"},
 ]
 
@@ -30,7 +33,9 @@ const Routes = [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    AddAccomondationComponent,
+    AccomondationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  Router,
+  ActivatedRoute
+} from '@angular/router';
 
 @Component({
   selector: 'app-userinfo',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+addAccomodation()
+{
+  this.router.navigate(['/addAccomodation']);
+
+}
+
+approveAccomodation()
+{
+  this.router.navigate(['/getAccomodations']);
+}
 
 }
