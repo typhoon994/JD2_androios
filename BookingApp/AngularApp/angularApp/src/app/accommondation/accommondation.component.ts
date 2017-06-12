@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Accomondation } from './models/accommondation.model';
+import { Accommondation } from '../models/accommondation.model';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Accomondation } from './models/accommondation.model';
 })
 
 export class AccomondationComponent implements OnInit {
-    accommondations : Accomondation[];
+    accommondations : Accommondation[];
 
   constructor() { }
 
