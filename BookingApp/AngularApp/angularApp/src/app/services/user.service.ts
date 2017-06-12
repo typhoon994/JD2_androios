@@ -8,13 +8,12 @@ import 'rxjs/add/operator/toPromise';
 export class UserService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private apiUrl = 'localhost:54042/api/Accommodations';
+  private apiUrl = 'http://localhost:54042/api/accommodations/';
 
   constructor(private http: Http) { }
 
   getAccommondations(): Promise<Accommondation[]> {
-    const url = `${this.apiUrl}}`;
-    return this.http.get(url)
+    return this.http.get(this.apiUrl)
       .toPromise()
       .then(response => response.json().data as Accommondation[])
       .catch(this.handleError);

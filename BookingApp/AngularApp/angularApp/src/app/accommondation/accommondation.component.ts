@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Accommondation } from '../models/accommondation.model';
 
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-accommondation',
@@ -13,12 +14,7 @@ import { Accommondation } from '../models/accommondation.model';
 export class AccomondationComponent implements OnInit {
     accommondations : Accommondation[];
     
-  constructor() { }
-
-
-  createAccomodation()
-  {
-
+  constructor(private userService: UserService) { 
   }
 
   back()
@@ -27,6 +23,8 @@ export class AccomondationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userService.getAccommondations()
+      .then((accommondations) => this.accommondations = accommondations);
   }
 
 }

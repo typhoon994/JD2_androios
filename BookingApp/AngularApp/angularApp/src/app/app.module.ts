@@ -11,6 +11,7 @@ import { UserInfoComponent } from './userinfo/userinfo.component';
 import { AddAccomondationComponent } from './accommondation/add-accomodation.component';
 import { AccomondationComponent } from './accommondation/accommondation.component';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 import { LoggedInGuard } from './logged-in.guard'
 
@@ -43,7 +44,7 @@ const Routes = [
     HttpModule,
     RouterModule.forRoot(Routes)
   ],
-  providers: [AuthService, LoggedInGuard],//!LoggedInGuard also has to be included in providers!
+  providers: [AuthService, LoggedInGuard, UserService],//!LoggedInGuard also has to be included in providers!
   bootstrap: [AppComponent]
 })
 export class AppModule { }
