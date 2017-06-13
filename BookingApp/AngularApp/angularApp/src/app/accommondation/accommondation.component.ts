@@ -13,6 +13,7 @@ import { UserService } from '../services/user.service';
 
 export class AccomondationComponent implements OnInit {
     accommondations : Accommondation[];
+    hidden: boolean = true;
     
   constructor(private userService: UserService) { 
   }
@@ -28,4 +29,11 @@ export class AccomondationComponent implements OnInit {
         this.accommondations = accommondations});
   }
 
+  approveAccommondation(acc : Accommondation) {
+    acc.Approved = true;
+    this.userService.putAccomodation(acc)
+     .then((accommondation) => {   
+        // todo: handle response
+      });
+  }
 }

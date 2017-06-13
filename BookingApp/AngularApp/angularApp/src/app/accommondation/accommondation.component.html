@@ -1,19 +1,21 @@
 <h2>Available accommondations</h2>
- <table class="accommondation" style="height: 21px;" width="427">
+ <table class="accommondation" style="height: 21px;" width="427" border="1">
   <tbody>
   <tr *ngFor="let accommondation of accommondations">
    
 
 
-<td>{{accommondation.Name}}</td>
-<!-- Name -->
-<td>{{accommondation.Location}};</td>
-<!-- Address -->
-<td>{{accommondation.Grade}}</td>
-<!-- Grade -->
-<td><button type="button"> See details</button></td>
-<!-- Details -->
-<td><button type="button"> Approve</button></td>
+  <td style="text-align:center;">{{accommondation.Name}}</td>
+  <!-- Name -->
+  <td style="text-align:center;">{{accommondation.Location}};</td>
+  <!-- Address -->
+  <td style="text-align:center;">{{accommondation.Grade}}</td>
+  <!-- Grade -->
+  <td style="text-align:center;"><button type="button"> See details</button></td>
+  <!-- Details -->
+  <td style="text-align:center;" [hidden]="accommondation.Approved">
+  <button type="button" (click)="approveAccommondation(accommondation)">Approve</button>
+  </td>
 <!-- Approve  --></tr>
 </tbody>
 </table>
