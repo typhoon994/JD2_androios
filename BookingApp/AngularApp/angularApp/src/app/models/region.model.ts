@@ -1,10 +1,17 @@
 /**
  * Provides a `Region` object
  */
+
+import { Country } from '../models/country.model';
+import { Place } from '../models/place.model';
+
 export class Region {
   constructor(
-    public id: number,
-    private name: string
+    public Id: number,
+    public Name: string,
+    public Country: Country,
+    public m_Places: Array<Place>
+
    ) {
   }
 }

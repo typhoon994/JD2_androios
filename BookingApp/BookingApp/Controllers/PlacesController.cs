@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.OData;
+using System.Web.Http.OData.Routing;
 using BookingApp.Models;
 
 namespace BookingApp.Controllers
@@ -17,6 +19,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/Places
+        [EnableQuery]
         public IQueryable<Place> GetPlaces()
         {
             return db.Places;

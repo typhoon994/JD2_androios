@@ -17,6 +17,13 @@
 			<td><input maxlength="25" name="description" ngModel size="25" type="text" /></td>
 		</tr>
 		<tr>
+			<td>Owner:</td>
+			<td><select id='ownerDropDown'><option  *ngFor="let user of users" 
+    [value]="user.Id">     {{user.Username}}</option>
+ 				</select></td>
+		</tr>
+		
+		<tr>
 			<td>Address:</td>
 			<td><input maxlength="25"  name="address" ngModel size="25" type="text" /></td>
 		</tr>
@@ -33,15 +40,28 @@
 			<td><input maxlength="25"   name="longitude" ngModel size="25" type="text" /></td>
 		</tr>
 		<tr>
+			<td>Place:</td>
+			<td><select  id='placeDropDown'><option *ngFor="let place of places" 
+    [value]="place.Id">     {{place.Name}}</option>
+ 				</select></td>
+		</tr>
+		<tr>
 			<td>Image URL:</td>
 			<td><input maxlength="25"  name="imageUrl" ngModel size="25" type="text" /></td>
+		</tr>
+				<tr>
+			<td>Rooms:</td>
+			<td><select > <option *ngFor="let room of rooms" 
+    [value]="room.Id">     {{room.RoomNumber}}</option>
+ 				</select></td>
 		</tr>
 	</tbody>
 </table>
 <input name="addAccomodation" type="submit" value="Add accomodation" />​ 
-
+<input name="goBack" (click)="goBack()" type="button" value="Back" />
+<input name="addRooms" (click)="addRooms()" type="button" value="Add rooms" />
 </form>
 
 &nbsp; &nbsp;
 
-<input name="goBack" (click)="goBack()" type="button" value="Back" />
+

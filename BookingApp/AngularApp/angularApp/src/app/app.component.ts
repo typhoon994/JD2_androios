@@ -16,7 +16,6 @@ import {
 export class AppComponent {
   title = 'Login';
 
-  user1 = new User(1, 'admin', 'admin@admin.co', 'admin');
 
  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe();

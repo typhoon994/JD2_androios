@@ -27,4 +27,10 @@ approveAccomodation()
   this.router.navigate(['/getAccomodations']);
 }
 
+reserveRoom()
+{ 
+  this.router.navigate(['/getRooms']);
+
+}
+
 }

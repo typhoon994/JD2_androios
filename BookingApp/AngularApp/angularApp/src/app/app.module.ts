@@ -10,6 +10,9 @@ import { AboutComponent } from './about/about.component';
 import { UserInfoComponent } from './userinfo/userinfo.component';
 import { AddAccomondationComponent } from './accommondation/add-accomodation.component';
 import { AccomondationComponent } from './accommondation/accommondation.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { CommentComponent } from './rooms/leave-comment';
+import { GetRoomsComponent } from './rooms/get-rooms.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
@@ -25,6 +28,9 @@ const Routes = [
   {path: "about/:Id", component: AboutComponent},
   {path: "addAccomodation", component: AddAccomondationComponent},
   {path: "getAccomodations", component: AccomondationComponent},
+  {path: "getRooms", component: GetRoomsComponent},
+  {path: "rooms", component: RoomsComponent},
+  {path: "comment", component: CommentComponent},
   {path: "other", redirectTo:"home"},
 ]
 
@@ -36,7 +42,10 @@ const Routes = [
     AboutComponent,
     UserInfoComponent,
     AddAccomondationComponent,
-    AccomondationComponent
+    AccomondationComponent,
+    RoomsComponent,
+    GetRoomsComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

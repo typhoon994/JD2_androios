@@ -1,6 +1,12 @@
 /**
  * Provides a `Accommondation` object
  */
+
+import { User } from '../models/user.model';
+import { Place } from '../models/place.model';
+import { Comment } from '../models/comment.model';
+import { Room } from '../models/room.model';
+
 export class Accommondation {
 
     public Id: number;
@@ -12,8 +18,12 @@ export class Accommondation {
     public Longitude: number;
     public ImageUrl: string;
     public Approved: boolean = false;
-    public Owner_Id: number = 1;
-    public Place_Id: number = 1;
+    public Owner: User;
+    public Place: Place;
     public Accomodation_Type: number = 1;
+    public m_Comments: Array<Comment>;
+    public m_Rooms: Array<Room>;
+
+
     
 }
