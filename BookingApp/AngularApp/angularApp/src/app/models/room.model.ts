@@ -1,13 +1,22 @@
 /**
  * Provides a `Room` object
  */
+
+import { RoomReservation } from '../models/roomReservation.model';
+import { Accommondation } from '../models/accommondation.model';
+
+
 export class Room {
   constructor(
-    public id: number,
-    public roomNumber: number,
-    public description: string,
-    public bedCount: number,
-    public pricePerNight:number
+
+    public Id: number,
+    public RoomNumber: number,
+    public Description: string,
+    public BedCount: number,
+    public PricePerNight:number,
+    public Accomodation: Accommondation,
+    public m_RoomReservations: Array<RoomReservation>
+    
    ) {
   }
 }
