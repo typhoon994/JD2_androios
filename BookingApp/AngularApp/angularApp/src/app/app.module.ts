@@ -12,7 +12,7 @@ import { AddAccomondationComponent } from './accommondation/add-accomodation.com
 import { AccomondationComponent } from './accommondation/accommondation.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { CommentComponent } from './rooms/leave-comment';
-import { GetRoomsComponent } from './rooms/get-rooms.component';
+import { GetRoomsComponent } from './rooms/getrooms.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 

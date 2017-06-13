@@ -1,0 +1,19 @@
+<h2>Available rooms</h2>
+ <table class="room" style="height: 21px;" width="427">
+  <tbody>
+  <tr *ngFor="let room of rooms">
+   
+
+
+<td>{{room.Name}}</td>
+
+<td>{{room.BedCount}};</td>
+
+<td>{{room.Price}}</td>
+
+<td><button type="button">Reserve</button></td>
+
+<td><button type="button">Comment</button></td>
+<!-- Approve  --></tr>
+</tbody>
+</table>
