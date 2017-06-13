@@ -1,6 +1,19 @@
 <h2>Available accommondations</h2>
-<ul class="accommondation">
-  <li *ngFor="let accommondation of accommondations">
-    <span class="badge">{{accommondation.Name}}</span> {{accommondation.Id}}
-  </li>
-</ul>
+ <table class="accommondation" style="height: 21px;" width="427">
+  <tbody>
+  <tr *ngFor="let accommondation of accommondations">
+   
+
+
+<td>{{accommondation.Name}}</td>
+<!-- Name -->
+<td>{{accommondation.Location}};</td>
+<!-- Address -->
+<td>{{accommondation.Grade}}</td>
+<!-- Grade -->
+<td><button type="button"> See details</button></td>
+<!-- Details -->
+<td><button type="button"> Approve</button></td>
+<!-- Approve  --></tr>
+</tbody>
+</table>
