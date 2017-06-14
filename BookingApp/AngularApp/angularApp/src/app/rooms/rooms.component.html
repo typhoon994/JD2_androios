@@ -1,27 +1,36 @@
 <p>Room:</p>
 
-<form #f="ngForm" (ngSubmit)="createAccomodation(f.value, f)">
+<form #f="ngForm" (ngSubmit)="createRoom(f.value, f)">
 
 <table border="1" cellpadding="1" cellspacing="1" style="width: 300px;">
 	<tbody>
 		<tr>
 			<td>Number:</td>
-			<td><input maxlength="25"  name="name" ngModel size="25" type="text" />​​</td>
+			<td><input maxlength="25"  name="RoomNumber" ngModel size="25" type="text" />​​</td>
 		</tr>
 		<tr>
 			<td>Beds:</td>
-			<td><input maxlength="25" name="description" ngModel size="25" type="text" /></td>
+			<td><input maxlength="25" name="BedCount" ngModel size="25" type="text" /></td>
 		</tr>
 		<tr>
 			<td>Descripton:</td>
-			<td>
+			<td><input maxlength="25" name="description" ngModel size="25" type="text" />
  				</td>
 		</tr>
 		
 		<tr>
 			<td>Price:</td>
-			<td><input maxlength="25"  name="address" ngModel size="25" type="text" /></td>
+			<td><input maxlength="25"  name="PricePerNight" ngModel size="25" type="text" /></td>
 		</tr>
+
+			<tr>
+			<td>Accomodation:</td>
+			<td><select id='accDropDown'><option  *ngFor="let acc of accomodations" 
+    [value]="acc.Id">     {{acc.Name}}</option>
+ 				</select></td>
+		</tr>
+
+
 		<tr>
 		
 	</tbody>

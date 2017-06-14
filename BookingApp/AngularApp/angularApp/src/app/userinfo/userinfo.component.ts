@@ -33,4 +33,9 @@ reserveRoom()
 
 }
 
+ addRooms()
+  {
+    this.router.navigate(['/rooms']);
+  }
+  
 }

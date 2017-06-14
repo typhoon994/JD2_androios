@@ -14,7 +14,7 @@ export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private apiUrl = 'http://localhost:54042/api/accommodations';
   private roomsUrl = 'http://localhost:54042/api/rooms/'
-  private placesUrl = 'http://localhost:54042/api/places?$expand=region'
+  private placesUrl = 'http://localhost:54042/api/places'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
   private usersUrl = 'http://localhost:54042/api/Appusers/'
   private regionsUrl = 'http://localhost:54042/api/regions/'
@@ -46,7 +46,7 @@ export class UserService {
   }
 
   getPlaces(): Promise<Place[]> { 
-    return this.http.get(this.placesUrl)
+    return this.http.get(this.placesUrl+"?$expand=region/country")
       .toPromise()
       .then(response => {
           return response.json() as Place[]; })
@@ -72,6 +72,20 @@ export class UserService {
       .post(this.apiUrl, JSON.stringify(accomodation), { headers: headers })
       .toPromise()
       .then(res => res.json() as Accommondation)
+      .catch(this.handleError);
+    
+  }
+
+ postRoom(room: Room): Promise<Room> {
+
+       const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http
+      .post(this.roomsUrl, JSON.stringify(room), { headers: headers })
+      .toPromise()
+      .then(res => res.json() as Room)
       .catch(this.handleError);
     
   }

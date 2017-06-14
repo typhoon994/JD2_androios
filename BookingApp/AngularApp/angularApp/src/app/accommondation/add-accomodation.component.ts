@@ -40,9 +40,10 @@ export class AddAccomondationComponent implements OnInit {
 
     var ownerElement = Number.parseInt((<HTMLInputElement>document.getElementById("ownerDropDown")).value);
     acc.Owner = this.users[ownerElement-1];
+
+    acc.Approved = false;
+
 debugger
-   // var region = this.userService.getRegionById(acc.Place.Id)
-   // acc.Place.Region = region
 
     this.userService.postAccomodation(acc).then(accomondation => {
           acc = accomondation; // saved hero, w/ id if new
@@ -58,10 +59,7 @@ debugger
      this.router.navigate(['/userinfo']);
   }
 
-  addRooms()
-  {
-    this.router.navigate(['/rooms']);
-  }
+ 
 
   getRooms()
   {

@@ -57,6 +57,8 @@ export class AppComponent {
 
   }
 
+  
+
   logOut(){
 
     var x = document.getElementById("1")
