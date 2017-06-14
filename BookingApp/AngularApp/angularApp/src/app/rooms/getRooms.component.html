@@ -1,15 +1,14 @@
 <h2>Available rooms</h2>
- <table class="room" style="height: 21px;" width="427">
+ <table class="room" style="height: 21px;" width="427" border = "1">
   <tbody>
   <tr *ngFor="let room of rooms">
    
 
 
-<td>{{room.Name}}</td>
 
-<td>{{room.BedCount}};</td>
+<td>{{room.BedCount}}</td>
 
-<td>{{room.Price}}</td>
+<td>{{room.RoomNumber}}</td>
 
 <td><button type="button">Reserve</button></td>
 

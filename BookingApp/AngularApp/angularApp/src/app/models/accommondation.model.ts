@@ -2,10 +2,10 @@
  * Provides a `Accommondation` object
  */
 
-import { User } from '../models/user.model';
-import { Place } from '../models/place.model';
-import { Comment } from '../models/comment.model';
 import { Room } from '../models/room.model';
+import { Comment } from '../models/comment.model';
+import { Place } from '../models/place.model';
+import { User } from '../models/user.model';
 
 export class Accommondation {
 
@@ -19,11 +19,9 @@ export class Accommondation {
     public ImageUrl: string;
     public Approved: boolean = false;
     public Owner: User;
-    public Place: Place;
-    public Accomodation_Type: number = 1;
-    public m_Comments: Array<Comment>;
-    public m_Rooms: Array<Room>;
-
-
-    
+    public Place_Id: number;
+    public Accomodation_Type: number;
+    public m_Comment: Array<Comment>;
+    public m_Room: Array<Room>;
+    public Place: Place
 }

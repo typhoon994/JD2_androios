@@ -71,12 +71,11 @@ namespace BookingApp.Migrations
             Region r1 = new Region();
             r1.Name = "Balkan";
             r1.country = c1;
-            r1.m_Place = new List<Place>();
 
             Place p1 = new Place();
             p1.Name = "Novi Sad, Strand";
             p1.region = r1;
-            r1.m_Place.Add(p1);
+   
 
             Accommodation a1 = new Accommodation();
             a1.Name = "Pansion Debeli Lad";
@@ -87,9 +86,9 @@ namespace BookingApp.Migrations
             a1.Longitude = 19.855324;
             a1.ImageURL = "goo.gl/SEZtJd";
             a1.Approved = true;
-            a1.m_Comment = new List<Comment>(1);
+  
             a1.place = p1;
-            p1.m_Accommodation = new List<Accommodation>(1) { a1 };
+  
 
             Room room1 = new Room();
             room1.RoomNumber = 1;
@@ -97,7 +96,7 @@ namespace BookingApp.Migrations
             room1.Description = "Nice room with pleasant atmosfere";
             room1.PricePerNight = 30;
             room1.accomodation = a1;
-            a1.m_Room = new List<Room>(1) { room1 };
+    
 
             RoomReservations rr = new RoomReservations();
             rr.StartDate = DateTime.Now;
@@ -108,8 +107,8 @@ namespace BookingApp.Migrations
             user.Username = "Zanklod";
             user.Password = "Vandam";
             user.Email = "zanklodvandambogotac@mailinator.com";
-            user.m_Accommodation = new List<Accommodation>(1) { a1 };
-            user.m_RoomReservations = new List<RoomReservations>(1) { rr };
+
+            a1.owner = user;
 
             Comment cmm = new Comment();
             cmm.Grade = 1;
@@ -119,7 +118,6 @@ namespace BookingApp.Migrations
 
             AccommodationType type = new AccommodationType();
             type.Name = "FullFulova";
-            type.m_Accommodation = new List<Accommodation>(1) { a1 };
 
             try
             {

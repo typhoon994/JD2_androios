@@ -17,7 +17,6 @@ namespace BookingApp.Models
 
         [Required]
         public Accommodation accomodation { get; set; }
-        public List<RoomReservations> m_RoomReservations { get; set; }
 
 		public Room(){
 

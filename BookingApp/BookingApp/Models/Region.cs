@@ -14,7 +14,6 @@ namespace BookingApp.Models
 
         [Required]
         public Country country { get; set; }
-        public List<Place> m_Place { get; set; }
 
 
         public Region(){

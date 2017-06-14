@@ -12,7 +12,6 @@ namespace BookingApp.Models
 		private int code;
         public int Id { get; set; }
         private string name;
-        public List<Region> m_Region { get; set; }
 
 		public Country(){
 

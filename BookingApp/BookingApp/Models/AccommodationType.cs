@@ -11,7 +11,6 @@ namespace BookingApp.Models
 
         public int Id { get; set; }
         private string name;
-        public List<Accommodation> m_Accommodation { get; set; }
 
 		public AccommodationType(){
 

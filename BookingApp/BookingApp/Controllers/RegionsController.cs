@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.OData;
+using System.Web.Http.OData.Routing;
 using BookingApp.Models;
 
 namespace BookingApp.Controllers
@@ -23,6 +25,7 @@ namespace BookingApp.Controllers
         }
 
         // GET: api/Regions/5
+        [EnableQuery]
         [ResponseType(typeof(Region))]
         public IHttpActionResult GetRegion(int id)
         {

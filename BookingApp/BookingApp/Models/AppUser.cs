@@ -13,11 +13,6 @@ namespace BookingApp.Models
         private string password;
         private string username;
 
-        public List<Comment> m_Comment { get; set; }
-
-        public List<RoomReservations> m_RoomReservations { get; set; }
-
-        public List<Accommodation> m_Accommodation { get; set; }
 
         public AppUser()
         {

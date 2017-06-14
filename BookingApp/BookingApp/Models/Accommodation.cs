@@ -19,10 +19,6 @@ namespace BookingApp.Models
 		private double longitude;
 		private string name;
 
-        public List<Comment> m_Comment { get; set; }
-
-        public List<Room> m_Room { get; set; }
-
         [Required]
         public Place place { get; set; }
 

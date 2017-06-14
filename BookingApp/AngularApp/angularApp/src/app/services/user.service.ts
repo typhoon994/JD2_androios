@@ -12,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class UserService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private apiUrl = 'http://localhost:54042/api/accommodations/';
+  private apiUrl = 'http://localhost:54042/api/accommodations';
   private roomsUrl = 'http://localhost:54042/api/rooms/'
   private placesUrl = 'http://localhost:54042/api/places?$expand=region'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
@@ -22,7 +22,7 @@ export class UserService {
   constructor(private http: Http) { }
 
   getAccommondations(): Promise<Accommondation[]> {
-    return this.http.get(this.apiUrl)
+    return this.http.get(this.apiUrl+"?$expand=owner,place/region/country")
       .toPromise()
       .then(response => {
           return response.json() as Accommondation[]; })
