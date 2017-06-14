@@ -1,18 +1,21 @@
 import { Injectable }    from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { RequestOptions } from '@angular/http';
 import { Accommondation } from '../models/accommondation.model'
 import { AccomodationType } from '../models/accomodationtype.model'
 import { Room } from '../models/room.model'
 import { Place } from '../models/place.model'
 import { User } from '../models/User.model'
 import { Region } from '../models/region.model'
+import { Login } from '../models/login.model'
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-
   private headers = new Headers({'Content-Type': 'application/json'});
   private apiUrl = 'http://localhost:54042/api/accommodations';
+  private loginUrl = 'http://localhost:54042/oauth/token';
   private roomsUrl = 'http://localhost:54042/api/rooms/'
   private placesUrl = 'http://localhost:54042/api/places'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
@@ -20,6 +23,25 @@ export class UserService {
   private regionsUrl = 'http://localhost:54042/api/regions/'
 
   constructor(private http: Http) { }
+
+ login(login : Login): void {
+      var body = 'username=admin?password=admin&grant_type=password';
+      var options = new RequestOptions();
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      options.headers = this.headers;
+
+      this.http.post(this.loginUrl,
+          body, 
+          options)
+          .subscribe(data => {
+              debugger
+              alert('ok');
+          }, error => {
+              debugger
+              console.log(JSON.stringify(error.json()));
+          });
+  }
 
   getAccommondations(): Promise<Accommondation[]> {
     return this.http.get(this.apiUrl+"?$expand=owner,place/region/country")

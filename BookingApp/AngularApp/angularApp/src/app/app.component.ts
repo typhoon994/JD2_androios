@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 import { User } from './models/user.model';
+import { Login } from './models/login.model';
+import {NgForm} from '@angular/forms';
 
 import {
   Router,
@@ -17,37 +20,25 @@ export class AppComponent {
   title = 'Login';
 
 
- constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
+ constructor(private userService : UserService, private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) {
     activatedRoute.params.subscribe();
    }
   
 
-  logIn(username:string,  password:String){
+  logIn(loginParam : Login, form : NgForm){
+    debugger
 
-//var txtUsername = ""
-//var txtPassword = ""
+    if (this.authService.isLoggedIn()) {
+      this.logOut();
+      return;
+    }
 
-   // if (this.user1.username == txtUsername  && this.user1.password == txtPassword) {        
-     this.authService.logIn();
-     this.router.navigate(['/userinfo']);
-     var x = document.getElementById("1")
-
-     if (x.style.display === 'none')
-     {
-       x.style.display = 'block'
-     }
-     else
-     {
-       x.style.display = 'none'
-     }
-
-   //}
-   //else
-   //{
-    // alert("User not found!");
-   //}
-
-   
+     this.userService.login(loginParam);
+     /*then(response => {
+       debugger
+       this.authService.logIn();
+       this.router.navigate(['/userinfo']);
+     });*/ 
   }
 
   addAccomodation()
@@ -59,20 +50,9 @@ export class AppComponent {
 
   
 
-  logOut(){
-
-    var x = document.getElementById("1")
-    if (x.style.display === 'none')
-     {
-       x.style.display = 'block'
-     }
-     else
-     {
-       x.style.display = 'none'
-     }
-
+  logOut(){ 
     this.authService.logOut();
-        this.router.navigate(['']);
+    this.router.navigate(['']);
   }
 
   isLoggedIn() : boolean{

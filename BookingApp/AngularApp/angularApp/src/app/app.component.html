@@ -7,21 +7,19 @@
 </head>
 <body>
 
-<form action="logIn" enctype="text/plain" id="1" method="post" name="login">
-<p>Username:&nbsp;<input maxlength="10" id="username"  type="text" /></p>
-<p>Password: &nbsp;<input maxlength="10" id="password" type="password" /></p>
+<form #f="ngForm" (ngSubmit)="logIn(f.value, f)">
+<p [hidden]="isLoggedIn()">Username:&nbsp;<input maxlength="10" name="username" ngModel type="text" /></p>
+<p [hidden]="isLoggedIn()">Password: &nbsp;<input maxlength="10" name="password" ngModel type="password" /></p>
+<div *ngIf="!isLoggedIn()">
+    <button type="submit">Log In!</button>
+  </div>
+  <div *ngIf="isLoggedIn()">
+    <button type="submit">Log Out!</button>
+  </div>
 </form>
 
 </body>
 </html>
-
-
-  <div *ngIf="!isLoggedIn()">
-    <button (click)="logIn()">Log In!</button>
-  </div>
-  <div *ngIf="isLoggedIn()">
-    <button (click)="logOut()">Log Out!</button>
-  </div>
 
 <router-outlet></router-outlet>
 

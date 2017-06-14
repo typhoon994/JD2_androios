@@ -2,10 +2,9 @@ export class AuthService{
     loggedIn : boolean;
 
     constructor(){
-        
     }
 
-    logIn(): void{
+    logIn(): void{      
         localStorage.setItem("token","myToken");
     }
 
