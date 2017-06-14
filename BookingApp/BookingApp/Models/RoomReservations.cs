@@ -13,6 +13,7 @@ namespace BookingApp.Models
 		private Nullable<DateTime> startDate;
 		private Nullable<DateTime> timestamp;
 
+
 		public RoomReservations(){
 
 		}
@@ -21,7 +22,10 @@ namespace BookingApp.Models
 
 		}
 
-		public Nullable<DateTime> EndDate
+        [Required]
+        public Room Room { get; set; }
+
+        public Nullable<DateTime> EndDate
         {
 			get{
 				return endDate;

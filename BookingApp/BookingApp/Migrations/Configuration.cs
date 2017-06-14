@@ -102,6 +102,7 @@ namespace BookingApp.Migrations
             rr.StartDate = DateTime.Now;
             rr.EndDate = DateTime.Now.AddDays(1);
             rr.Timestamp = DateTime.Now;
+            rr.Room = room1;
 
             Models.AppUser user = new Models.AppUser();
             user.Username = "Zanklod";
