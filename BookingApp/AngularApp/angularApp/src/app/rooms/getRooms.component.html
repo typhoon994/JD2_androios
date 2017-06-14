@@ -1,18 +1,31 @@
 <h2>Available rooms</h2>
- <table class="room" style="height: 21px;" width="427" border = "1">
+<table class="room" style="height: 21px;" width="427" border="0">
   <tbody>
-  <tr *ngFor="let room of rooms">
-   
+    <tr>
+      <td>Room number:</td>
+      <td>Bed count:</td>
+    </tr>
+    <tr *ngFor="let room of rooms">
+
+
+      <td style="text-align:center;">{{room.RoomNumber}}</td>
+
+      <td style="text-align:center;">{{room.BedCount}}</td>
 
 
 
-<td>{{room.BedCount}}</td>
+      <td style="text-align:center;"><button type="button" (click)="reserve(room)">Reserve</button></td>
+      <td style="text-align:center;"><button type="button" (click)="comment(room)">Comment</button></td>
 
-<td>{{room.RoomNumber}}</td>
-
-<td><button type="button">Reserve</button></td>
-
-<td><button type="button">Comment</button></td>
-<!-- Approve  --></tr>
-</tbody>
+    </tr>
+  </tbody>
 </table>
+
+<p></p>
+<p></p>
+
+<table>
+      <td>Start date: <input ngModel id="startDate" name="start" type="date" /></td>
+      <p></p>
+      <td>End date: <input ngModel id="endDate" name="end" type="date" /></td>
+  </table>

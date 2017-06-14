@@ -21,9 +21,15 @@ export class RoomsComponent implements OnInit {
 
   createRoom(room : Room, form: NgForm)
   {
-        debugger
+    debugger
     var accElement = Number.parseInt((<HTMLInputElement>document.getElementById("accDropDown")).value);
-    room.Accomodation =  this.accomodations[accElement-1];
+   
+   this.accomodations.forEach(acc => {
+     if (acc.Id == accElement)
+     room.Accomodation =  acc;
+   });
+
+    
 
     this.userService.postRoom(room);
   }

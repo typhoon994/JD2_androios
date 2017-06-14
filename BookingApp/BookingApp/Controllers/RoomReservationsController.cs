@@ -79,6 +79,9 @@ namespace BookingApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            db.Rooms.Attach(roomReservations.Room);
+            db.Accomondations.Attach(roomReservations.Room.accomodation);
+
             db.RoomReservations.Add(roomReservations);
             db.SaveChanges();
 

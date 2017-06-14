@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 import { Accommondation } from '../models/accommondation.model'
 import { AccomodationType } from '../models/accomodationtype.model'
 import { Room } from '../models/room.model'
+import { RoomReservation } from '../models/roomReservation.model'
 import { Place } from '../models/place.model'
 import { User } from '../models/User.model'
 import { Region } from '../models/region.model'
@@ -14,6 +15,7 @@ export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private apiUrl = 'http://localhost:54042/api/accommodations';
   private roomsUrl = 'http://localhost:54042/api/rooms/'
+  private roomReservationsUrl = 'http://localhost:54042/api/roomReservations/'
   private placesUrl = 'http://localhost:54042/api/places'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
   private usersUrl = 'http://localhost:54042/api/Appusers/'
@@ -30,7 +32,7 @@ export class UserService {
   }
 
   getRooms(): Promise<Room[]> { 
-    return this.http.get(this.roomsUrl)
+    return this.http.get(this.roomsUrl+"?$expand=accomodation/owner,accomodation/place/region/country")
       .toPromise()
       .then(response => {
           return response.json() as Room[]; })
@@ -96,12 +98,26 @@ export class UserService {
     });
 
     let url = `${this.apiUrl}/${accomodation.Id}`;
-    debugger
     return this.http
       .put(url, JSON.stringify(accomodation), { headers: headers })
       .toPromise()
       .then(res => { debugger 
         return res.json() as Accommondation;})
+      .catch(this.handleError);
+    
+  }
+
+ 
+  reserveRoom(room: RoomReservation): Promise<RoomReservation> {
+       const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let url = `${this.roomReservationsUrl}`;
+    return this.http
+      .post(url, JSON.stringify(room), { headers: headers })
+      .toPromise()
+      .then(res => { debugger 
+        return res.json() as RoomReservation;})
       .catch(this.handleError);
     
   }

@@ -45,7 +45,7 @@ const Routes = [
     AccomondationComponent,
     RoomsComponent,
     GetRoomsComponent,
-    CommentComponent
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

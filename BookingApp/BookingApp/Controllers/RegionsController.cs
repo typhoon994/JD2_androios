@@ -82,6 +82,8 @@ namespace BookingApp.Controllers
                 return BadRequest(ModelState);
             }
 
+            db.Countries.Attach(region.country);
+
             db.Regions.Add(region);
             db.SaveChanges();
 
