@@ -20,6 +20,7 @@ export class UserService {
   private roomsUrl = 'http://localhost:54042/api/rooms/'
   private roomReservationsUrl = 'http://localhost:54042/api/roomReservations/'
   private placesUrl = 'http://localhost:54042/api/places'
+  private managersUrl = 'http://localhost:54042/api/managers'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
   private usersUrl = 'http://localhost:54042/api/Appusers/'
   private regionsUrl = 'http://localhost:54042/api/regions/'
@@ -64,6 +65,19 @@ export class UserService {
       .toPromise()
       .then(response => {
           return response.json() as Room[]; })
+      .catch(this.handleError);
+  }
+
+     getManagers(): Promise<User[]> { 
+    return this.http.get(this.managersUrl)
+      .toPromise()
+      .then(response => {
+        
+          let managers:Array<User>;
+
+            
+          debugger
+          return response.json() as User[]; })
       .catch(this.handleError);
   }
 

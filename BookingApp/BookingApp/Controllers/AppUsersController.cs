@@ -20,7 +20,9 @@ namespace BookingApp.Controllers
         public IQueryable<AppUser> GetAppUsers()
         {
             return db.AppUsers;
+           
         }
+
 
         // GET: api/AppUsers/5
         [ResponseType(typeof(AppUser))]

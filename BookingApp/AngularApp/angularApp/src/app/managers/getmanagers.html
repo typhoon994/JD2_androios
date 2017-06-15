@@ -1,0 +1,18 @@
+<h2>Managers</h2>
+ <table class="managers" style="height: 21px;" width="427" border="1">
+  <tbody>
+  <tr *ngFor="let manager of managers">
+   
+
+
+  <td style="text-align:center;">{{manager.Username}}</td>
+  <!-- Name -->
+
+  <td [hidden]="manager.approved" style="text-align:center;" >
+  <button type="button"  (click)="denieCreating()">Denie</button>
+  </td><td [hidden]="manager.approved" style="text-align:center;" >
+  <button type="button"  (click)="denieCreating()">Approve</button>
+  </td>
+  </tr>
+</tbody>
+</table>

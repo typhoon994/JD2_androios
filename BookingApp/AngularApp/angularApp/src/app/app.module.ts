@@ -13,6 +13,7 @@ import { AccomondationComponent } from './accommondation/accommondation.componen
 import { RoomsComponent } from './rooms/rooms.component';
 import { CommentComponent } from './rooms/leave-comment';
 import { GetRoomsComponent } from './rooms/getrooms.component';
+import { GetManagers } from './managers/getmanagers';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
@@ -29,6 +30,7 @@ const Routes = [
   {path: "addAccomodation", component: AddAccomondationComponent},
   {path: "getAccomodations", component: AccomondationComponent},
   {path: "getRooms", component: GetRoomsComponent},
+  {path: "getManagers", component: GetManagers},
   {path: "rooms", component: RoomsComponent},
   {path: "comment", component: CommentComponent},
   {path: "other", redirectTo:"home"},
@@ -45,6 +47,7 @@ const Routes = [
     AccomondationComponent,
     RoomsComponent,
     GetRoomsComponent,
+    GetManagers,
     CommentComponent,
   ],
   imports: [
