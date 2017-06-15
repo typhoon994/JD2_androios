@@ -26,8 +26,6 @@ export class AppComponent {
   
 
   logIn(loginParam : Login, form : NgForm){
-    debugger
-
     if (this.authService.isLoggedIn()) {
       this.logOut();
       return;
@@ -35,19 +33,16 @@ export class AppComponent {
 
      this.userService.login(loginParam)
       .then( response => {
+        debugger
        this.authService.logIn();
        this.router.navigate(['/userinfo']);
      });
   }
 
   addAccomodation()
-  {
-    
+  {   
     this.router.navigate(['/']);
-
   }
-
-  
 
   logOut(){ 
     this.authService.logOut();
