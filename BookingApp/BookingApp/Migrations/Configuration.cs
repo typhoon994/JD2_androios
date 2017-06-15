@@ -109,6 +109,16 @@ namespace BookingApp.Migrations
             user.Password = "Vandam";
             user.Email = "zanklodvandambogotac@mailinator.com";
 
+            Models.AppUser user2 = new Models.AppUser();
+            user2.Username = "user";
+            user2.Password = "user";
+            user2.Email = "user@mailinator.com";
+
+            Models.AppUser user3 = new Models.AppUser();
+            user3.Username = "admin";
+            user3.Password = "admin";
+            user3.Email = "admin@mailinator.com";
+
             a1.owner = user;
 
             Comment cmm = new Comment();
@@ -129,6 +139,8 @@ namespace BookingApp.Migrations
                 context.Regions.Add(r1);
                 context.Places.Add(p1);
                 context.AppUsers.Add(user);
+                context.AppUsers.Add(user2);
+                context.AppUsers.Add(user3);
                 context.Comments.Add(cmm);
                 context.SaveChanges();
 
@@ -138,9 +150,27 @@ namespace BookingApp.Migrations
                 if (!context.Users.Any(u => u.UserName == "Zanklod"))
                 {
                     var _appUser = context.AppUsers.FirstOrDefault(a => a.Email == "zanklodvandambogotac@mailinator.com");
-                    var user3 = new BAIdentityUser() { Id = "zanklod", UserName = "Zanklod", Email = "zanklodvandambogotac@mailinator.com", PasswordHash = BAIdentityUser.HashPassword("vandam"), appUserId = _appUser.Id };
-                    userManager.Create(user3);
-                    userManager.AddToRole(user3.Id, "Admin");
+                    var zan = new BAIdentityUser() { Id = "zanklod", UserName = "Zanklod", Email = "zanklodvandambogotac@mailinator.com", PasswordHash = BAIdentityUser.HashPassword("vandam"), appUserId = _appUser.Id };
+                    userManager.Create(zan);
+                    userManager.AddToRole(zan.Id, "Manager");
+                }
+
+
+                if (!context.Users.Any(u => u.UserName == "admin"))
+                {
+                    var _appUser = context.AppUsers.FirstOrDefault(a => a.Email == "admin@mailinator.com");
+                    var zan = new BAIdentityUser() { Id = "admin", UserName = "admin", Email = "admin@mailinator.com", PasswordHash = BAIdentityUser.HashPassword("admin"), appUserId = _appUser.Id };
+                    userManager.Create(zan);
+                    userManager.AddToRole(zan.Id, "Admin");
+                }
+
+
+                if (!context.Users.Any(u => u.UserName == "user"))
+                {
+                    var _appUser = context.AppUsers.FirstOrDefault(a => a.Email == "user@mailinator.com");
+                    var zan = new BAIdentityUser() { Id = "user", UserName = "user", Email = "user@mailinator.com", PasswordHash = BAIdentityUser.HashPassword("user"), appUserId = _appUser.Id };
+                    userManager.Create(zan);
+                    userManager.AddToRole(zan.Id, "AppUser");
                 }
             }
             catch (Exception e)

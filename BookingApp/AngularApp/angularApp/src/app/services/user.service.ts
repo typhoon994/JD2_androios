@@ -57,6 +57,7 @@ export class UserService {
           return response.json() as User;})
       .catch(this.handleError);
   }
+  
 
   getAccommondations(): Promise<Accommondation[]> {
     return this.http.get(this.apiUrl+"?$expand=owner,place/region/country")
@@ -93,6 +94,15 @@ export class UserService {
       .then(response => {
           debugger
           return response.json() as User[]; })
+      .catch(this.handleError);
+  }
+
+  getReservations(): Promise<RoomReservation[]> { 
+    return this.http.get(this.roomReservationsUrl+"?$expand=Room/accomodation/owner,Room/accomodation/place/region/country")
+      .toPromise()
+      .then(response => {
+          debugger
+          return response.json() as RoomReservation[]; })
       .catch(this.handleError);
   }
 
@@ -152,6 +162,21 @@ export class UserService {
       .toPromise()
       .then(res => { debugger 
         return res.json() as Accommondation;})
+      .catch(this.handleError);
+    
+  }
+
+    putUser(user: User): Promise<User> {
+       const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let url = `${this.usersUrl}/${user.Id}`;
+    return this.http
+      .put(url, JSON.stringify(user), { headers: headers })
+      .toPromise()
+      .then(res => { debugger 
+        return res.json() as User;})
       .catch(this.handleError);
     
   }

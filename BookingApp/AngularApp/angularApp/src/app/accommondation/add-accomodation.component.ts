@@ -5,14 +5,14 @@ import { AccomodationType } from '../models/accomodationtype.model';
 import { RoomReservation } from '../models/roomreservation.model';
 import { Room } from '../models/room.model';
 import { User } from '../models/user.model';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import {
   Router,
   ActivatedRoute
 } from '@angular/router';
 
-import {UserService} from '../services/user.service'
+import { UserService } from '../services/user.service'
 
 @Component({
   selector: 'add-accommondation',
@@ -22,73 +22,77 @@ import {UserService} from '../services/user.service'
 
 export class AddAccomondationComponent implements OnInit {
 
-    error: any;
-    rooms: Room[] = [];
-    places: Place[] = [];
-    types: AccomodationType[] = [];
-    users: User[] = [];
+  error: any;
+  rooms: Room[] = [];
+  places: Place[] = [];
+  types: AccomodationType[] = [];
+  users: User[] = [];
 
-  
-    constructor(private router: Router, private userService: UserService) { 
-    }
 
-  createAccomodation(acc: Accommondation, form: NgForm)
-  {
+  constructor(private router: Router, private userService: UserService) {
+  }
+
+  createAccomodation(acc: Accommondation, form: NgForm) {
 
     var placeElement = Number.parseInt((<HTMLInputElement>document.getElementById("placeDropDown")).value);
-    acc.Place = this.places[placeElement-1];
+    acc.Place = this.places[placeElement - 1];
 
     var ownerElement = Number.parseInt((<HTMLInputElement>document.getElementById("ownerDropDown")).value);
-    acc.Owner = this.users[ownerElement-1];
+    acc.Owner = this.users[ownerElement - 1];
 
     acc.Approved = false;
 
-debugger
+    if (acc.Owner.Approved == true) {
 
-    this.userService.postAccomodation(acc).then(accomondation => {
-          acc = accomondation; // saved hero, w/ id if new
-          debugger
-          this.goBack
-          //todo, success, see all
-        })
-        .catch(error => this.error = error); // TODO: Display error message
+      this.userService.postAccomodation(acc).then(accomondation => {
+        acc = accomondation; // saved hero, w/ id if new
+        debugger
+        this.goBack
+        alert("Accomodation sucessfuly added.");
+      })
+        .catch(error => this.error = error);
+    }
+    else
+    { alert("User not allowed to add accomodations!") }
   }
 
-  goBack()
-  {
-     this.router.navigate(['/userinfo']);
+  goBack() {
+    this.router.navigate(['/userinfo']);
   }
 
- 
 
-  getRooms()
-  {
+
+  getRooms() {
 
   }
 
   ngOnInit() {
 
-     this.userService.getRooms()
-      .then((rooms) => {   
+    this.userService.getRooms()
+      .then((rooms) => {
 
-        this.rooms = rooms});
+        this.rooms = rooms
+      });
 
-             this.userService.getPlaces()
-      .then((places) => {   
-debugger
-        this.places = places});
+    this.userService.getPlaces()
+      .then((places) => {
+        debugger
+        this.places = places
+      });
 
-             this.userService.getTypes()
-      .then((types) => {   
+    this.userService.getTypes()
+      .then((types) => {
 
-        this.types = types});
+        this.types = types
+      });
 
 
 
-                     this.userService.getUsers()
-      .then((users) => {   
+    this.userService.getUsers()
+      .then((users) => {
 
-        this.users = users});
+        this.users = users
+      });
   }
 
 }

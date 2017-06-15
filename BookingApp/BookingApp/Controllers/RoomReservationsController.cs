@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BookingApp.Models;
+using System.Web.Http.OData;
 
 namespace BookingApp.Controllers
 {
@@ -17,6 +18,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/RoomReservations
+        [EnableQuery(MaxExpansionDepth = 5)]
         public IQueryable<RoomReservations> GetRoomReservations()
         {
             return db.RoomReservations;

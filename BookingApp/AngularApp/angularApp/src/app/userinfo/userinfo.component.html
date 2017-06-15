@@ -20,4 +20,5 @@
 <p><input name="addAccomodation" [hidden]="isUserNotManager()" (click)="addAccomodation()" type="button" value="Add accomodation" /> &nbsp; &nbsp;&nbsp;
 	<input name="approveAccomodation" [hidden]="isUserNotAdmin()" (click)="approveAccomodation()" type="button" value="Approve accomodation" />&nbsp; &nbsp;&nbsp;
 	<input name="reserveRoom" [hidden]="isNotUser()" (click)="reserveRoom()" type="button" value="Reserve a room" />​</p>
-<input name="addRooms" [hidden]="isUserNotManager()" (click)="addRooms()" type="button" value="Add rooms" />
+<p><input name="addRooms" [hidden]="isUserNotManager()" (click)="addRooms()" type="button" value="Add rooms" /></p>
+<p><input name="manageManagers" [hidden]="isUserNotAdmin()" (click)="manageManagers()" type="button" value="Edit managers" /></p>

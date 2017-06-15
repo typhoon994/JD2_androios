@@ -31,7 +31,12 @@ export class UserInfoComponent implements OnInit {
     this.router.navigate(['/getRooms']);
 
   }
-
+  
+  manageManagers()
+  {
+     this.router.navigate(['/getManagers']);
+  }
+  
   addRooms() {
     this.router.navigate(['/rooms']);
   }

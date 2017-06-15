@@ -36,7 +36,11 @@ export class AppComponent {
         debugger
        this.authService.logIn();
        this.router.navigate(['/userinfo']);
-     });
+
+     })
+     .catch(error => {
+     alert("User not found!")}) ;
+     
   }
 
   addAccomodation()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Http.OData;
 
 namespace BookingApp.Models
 {
@@ -21,7 +22,6 @@ namespace BookingApp.Models
 		~RoomReservations(){
 
 		}
-
         [Required]
         public Room Room { get; set; }
 

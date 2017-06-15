@@ -15,8 +15,8 @@ export class User {
     public Password: string,
     public m_Comment: Array<Comment>,
     public m_RoomReservations: Array<Comment>,
-    public m_Accomondation: Array<Accommondation>
-
+    public m_Accomondation: Array<Accommondation>,
+    public Approved: boolean
    ) {
   }
 }
