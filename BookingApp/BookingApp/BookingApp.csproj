@@ -286,6 +286,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+
     <Compile Include="Migrations\201706070926490_Initial.cs" />
     <Compile Include="Migrations\201706070926490_Initial.Designer.cs">
       <DependentUpon>201706070926490_Initial.cs</DependentUpon>
@@ -301,6 +302,7 @@
     <Compile Include="Migrations\201706151919081_user model fix.cs" />
     <Compile Include="Migrations\201706151919081_user model fix.Designer.cs">
       <DependentUpon>201706151919081_user model fix.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
@@ -395,6 +397,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+
     <EmbeddedResource Include="Migrations\201706070926490_Initial.resx">
       <DependentUpon>201706070926490_Initial.cs</DependentUpon>
     </EmbeddedResource>
@@ -406,6 +409,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706151919081_user model fix.resx">
       <DependentUpon>201706151919081_user model fix.cs</DependentUpon>
+
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

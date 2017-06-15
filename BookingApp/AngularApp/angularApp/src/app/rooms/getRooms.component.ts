@@ -71,10 +71,17 @@ this.userService.getReservations()
     }
   }
 
+  comment(room : Room)
+  {
+    this.userService.wasRoomReseverd(room.Id, localStorage.getItem("username"))
+    .then(wasReserved => {
+      if (wasReserved) {
+        this.router.navigate(['/comment']);
+        return;
+      }
 
-
-  comment() {
-    this.router.navigate(['/comment'])
+      alert("This room havent been reserved recently");
+    });
   }
 
   ngOnInit() {

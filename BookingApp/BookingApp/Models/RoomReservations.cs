@@ -12,7 +12,7 @@ namespace BookingApp.Models
         public int Id { get; set; }
         private Nullable<DateTime> endDate;
 		private Nullable<DateTime> startDate;
-		private Nullable<DateTime> timestamp;
+		private Nullable<DateTime> timestamp; 
 
 
 		public RoomReservations(){
@@ -24,6 +24,9 @@ namespace BookingApp.Models
 		}
         [Required]
         public Room Room { get; set; }
+
+        [Required]
+        public AppUser AppUser { get; set; }
 
         public Nullable<DateTime> EndDate
         {
