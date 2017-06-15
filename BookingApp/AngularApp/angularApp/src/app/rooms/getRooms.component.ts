@@ -18,9 +18,11 @@ import {
 
 
 export class GetRoomsComponent implements OnInit {
-    rooms : Room[];
+    rooms : Room[] = [];
     
   constructor(private userService: UserService, private router:Router) { 
+
+
   }
 
   back()
@@ -34,8 +36,6 @@ export class GetRoomsComponent implements OnInit {
     let startDate = new Date((<HTMLInputElement>document.getElementById("startDate")).value);
     let endDate = new Date((<HTMLInputElement>document.getElementById("endDate")).value);
 
-  
-debugger
  var res: RoomReservation =  new RoomReservation(endDate, startDate, startDate, room);
 
     this.userService.reserveRoom(res)
@@ -51,8 +51,19 @@ debugger
 
   ngOnInit() {
     this.userService.getRooms()
-      .then((rooms) => {   
+      .then((rooms) => {  
+
+      for (let r of rooms)
+      {
+        debugger
+        if (r.accomodation.Approved == false) 
+        rooms.splice(rooms.indexOf(r),1);
+        
+      }
+
         this.rooms = rooms});
+
+        
   }
 
 }

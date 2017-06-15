@@ -26,7 +26,7 @@ export class RoomsComponent implements OnInit {
    
    this.accomodations.forEach(acc => {
      if (acc.Id == accElement)
-     room.Accomodation =  acc;
+     room.accomodation =  acc;
    });
 
     

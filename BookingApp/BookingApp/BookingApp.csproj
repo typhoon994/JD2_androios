@@ -277,6 +277,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\PlacesController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\RoomReservationsController.cs" />
