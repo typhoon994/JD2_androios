@@ -33,12 +33,11 @@ export class AppComponent {
       return;
     }
 
-     this.userService.login(loginParam);
-     /*then(response => {
-       debugger
+     this.userService.login(loginParam)
+      .then( response => {
        this.authService.logIn();
        this.router.navigate(['/userinfo']);
-     });*/ 
+     });
   }
 
   addAccomodation()

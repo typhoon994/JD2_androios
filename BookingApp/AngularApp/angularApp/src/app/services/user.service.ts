@@ -26,27 +26,29 @@ export class UserService {
 
   constructor(private http: Http) { }
 
- login(login : Login): void {
-      var body = "username=Zanklod&password=vandam&grant_type=password";
+ login(login : Login): Promise<User> {
+      var body = "username="+login.username+"&password="+login.password+"&grant_type=password";
       var options = new RequestOptions();
       let hd = new Headers();
-
-
       hd.append("Content-Type", "application/x-www-form-urlencoded");
       options.headers = hd;
 
-     // options.headers = headers;
-      debugger
-      this.http.post(this.loginUrl,
+      return this.http.post(this.loginUrl,
           body, 
           options)
-          .subscribe(data => {
-              debugger
-              alert('ok');
-          }, error => {
-              debugger
-              console.log(JSON.stringify(error.json()));
-          });
+          .toPromise()
+          .then(data => 
+             this.getUser(login.username, data.json().access_token) 
+          )
+          .catch(this.handleError);
+  }
+
+ getUser(username : String, token: String): Promise<User> {
+    return this.http.get(this.usersUrl+"?$filter=username eq "+username)
+      .toPromise()
+      .then(response => {
+          return response.json() as User; })
+      .catch(this.handleError);
   }
 
   getAccommondations(): Promise<Accommondation[]> {
