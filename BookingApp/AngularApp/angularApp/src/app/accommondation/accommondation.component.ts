@@ -9,8 +9,6 @@ import { UserService } from '../services/user.service';
 })
 
 
-
-
 export class AccomondationComponent implements OnInit {
     accommondations : Accommondation[];
     hidden: boolean = true;

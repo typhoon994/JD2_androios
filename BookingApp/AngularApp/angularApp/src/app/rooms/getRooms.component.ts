@@ -55,7 +55,6 @@ export class GetRoomsComponent implements OnInit {
 
       for (let r of rooms)
       {
-        debugger
         if (r.accomodation.Approved == false) 
         rooms.splice(rooms.indexOf(r),1);
         
