@@ -77,6 +77,7 @@ export class UserService {
     return this.http.get(this.usersUrl)
       .toPromise()
       .then(response => {
+          debugger
           return response.json() as User[]; })
       .catch(this.handleError);
   }

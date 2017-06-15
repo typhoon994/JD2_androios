@@ -12,6 +12,7 @@ namespace BookingApp.Models
         public int Id { get; set; }
         private string password;
         private string username;
+        private Boolean approved;
 
 
         public AppUser()
@@ -58,6 +59,19 @@ namespace BookingApp.Models
             set
             {
                 username = value;
+            }
+        }
+
+        public Boolean Approved
+        {
+            get
+            {
+                return approved;
+            }
+
+            set
+            {
+                this.approved = value;
             }
         }
 

@@ -297,6 +297,10 @@
     <Compile Include="Migrations\201706140932334_updatedReservation2.Designer.cs">
       <DependentUpon>201706140932334_updatedReservation2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706151709038_Expanded user model.cs" />
+    <Compile Include="Migrations\201706151709038_Expanded user model.Designer.cs">
+      <DependentUpon>201706151709038_Expanded user model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
     <Compile Include="Models\AccommodationType.cs" />
@@ -398,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706140932334_updatedReservation2.resx">
       <DependentUpon>201706140932334_updatedReservation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706151709038_Expanded user model.resx">
+      <DependentUpon>201706151709038_Expanded user model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
