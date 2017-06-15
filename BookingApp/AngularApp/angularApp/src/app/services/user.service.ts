@@ -37,17 +37,23 @@ export class UserService {
           body, 
           options)
           .toPromise()
-          .then(data => 
-             this.getUser(login.username, data.json().access_token) 
-          )
+          .then(data => {
+            debugger
+             localStorage.setItem("token", data.json().access_token);
+             localStorage.setItem("role", data.headers.get("role"));
+             localStorage.setItem("username", login.username);
+             return this.getUser(login.username, data.json().access_token)    
+          })
           .catch(this.handleError);
   }
 
- getUser(username : String, token: String): Promise<User> {
+ getUser(username : string, token: String): Promise<User> {
     return this.http.get(this.usersUrl+"?$filter=username eq "+username)
       .toPromise()
       .then(response => {
-          return response.json() as User; })
+        debugger
+          localStorage.setItem("email", response.json()[0].Email);
+          return response.json() as User;})
       .catch(this.handleError);
   }
 

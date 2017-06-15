@@ -140,7 +140,7 @@ namespace BookingApp.Migrations
                     var _appUser = context.AppUsers.FirstOrDefault(a => a.Email == "zanklodvandambogotac@mailinator.com");
                     var user3 = new BAIdentityUser() { Id = "zanklod", UserName = "Zanklod", Email = "zanklodvandambogotac@mailinator.com", PasswordHash = BAIdentityUser.HashPassword("vandam"), appUserId = _appUser.Id };
                     userManager.Create(user3);
-                    userManager.AddToRole(user3.Id, "AppUser");
+                    userManager.AddToRole(user3.Id, "Admin");
                 }
             }
             catch (Exception e)

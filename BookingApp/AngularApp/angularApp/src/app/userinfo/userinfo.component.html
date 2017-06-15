@@ -1,25 +1,23 @@
 <title></title>
 <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
 	<caption>
-	<p>&nbsp;</p>
+		<p>&nbsp;</p>
 
-	<p>User details:</p>
+		<p>User details:</p>
 	</caption>
 	<tbody>
 		<tr>
 			<td>Email:</td>
-			<td>&nbsp;</td>
+			<td>{{email}}</td>
 		</tr>
 		<tr>
 			<td>Username:</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>Id:</td>
-			<td>&nbsp;</td>
+			<td>{{username}}</td>
 		</tr>
 	</tbody>
 </table>
 
-<p><input name="addAccomodation" (click)="addAccomodation()" type="button" value="Add accomodation" />&nbsp; &nbsp;&nbsp;<input name="approveAccomodation"  (click)="approveAccomodation()" type="button" value="Approve accomodation" />&nbsp; &nbsp;&nbsp;<input name="reserveRoom" (click)="reserveRoom()" type="button" value="Reserve a room" />​</p>
-<input name="addRooms" (click)="addRooms()" type="button" value="Add rooms" />
+<p><input name="addAccomodation" [hidden]="isUserNotManager()" (click)="addAccomodation()" type="button" value="Add accomodation" /> &nbsp; &nbsp;&nbsp;
+	<input name="approveAccomodation" [hidden]="isUserNotAdmin()" (click)="approveAccomodation()" type="button" value="Approve accomodation" />&nbsp; &nbsp;&nbsp;
+	<input name="reserveRoom" [hidden]="isNotUser()" (click)="reserveRoom()" type="button" value="Reserve a room" />​</p>
+<input name="addRooms" [hidden]="isUserNotManager()" (click)="addRooms()" type="button" value="Add rooms" />
