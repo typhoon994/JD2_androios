@@ -27,12 +27,16 @@ export class UserService {
   constructor(private http: Http) { }
 
  login(login : Login): void {
-      var body = 'username=admin?password=admin&grant_type=password';
+      var body = "username=Zanklod&password=vandam&grant_type=password";
       var options = new RequestOptions();
-      var headers = new Headers();
-      headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      options.headers = this.headers;
+      let hd = new Headers();
 
+
+      hd.append("Content-Type", "application/x-www-form-urlencoded");
+      options.headers = hd;
+
+     // options.headers = headers;
+      debugger
       this.http.post(this.loginUrl,
           body, 
           options)

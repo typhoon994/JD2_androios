@@ -34,7 +34,7 @@ namespace BookingApp
             
         }
 
-        [EnableCors("AllowAllHeaders")]
+        //[EnableCors("AllowAllHeaders")]
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
