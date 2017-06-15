@@ -27,6 +27,18 @@ export class UserService {
 
   constructor(private http: Http) { }
 
+  wasRoomReseverd(roomId :number, username :string) : Promise<boolean> {
+    return this.http.get(this.roomReservationsUrl+"?$filter=Room_id eq "+roomId+"$User_id eq "+username)
+          .toPromise()
+          .then(response => {
+              if (response.json().size() === 0)
+                return false;
+              
+              return true;
+            })
+          .catch(this.handleError);
+  }
+
  login(login : Login): Promise<User> {
       var body = "username="+login.username+"&password="+login.password+"&grant_type=password";
       var options = new RequestOptions();
@@ -54,6 +66,7 @@ export class UserService {
       .then(response => {
         debugger
           localStorage.setItem("email", response.json()[0].Email);
+          localStorage.setItem("user", response.json()[0]);
           return response.json() as User;})
       .catch(this.handleError);
   }

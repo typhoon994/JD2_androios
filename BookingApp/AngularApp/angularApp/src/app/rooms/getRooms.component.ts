@@ -44,9 +44,17 @@ export class GetRoomsComponent implements OnInit {
       });
   }
 
-  comment()
+  comment(room : Room)
   {
-     this.router.navigate(['/comment'])
+    this.userService.wasRoomReseverd(room.Id, localStorage.getItem("username"))
+    .then(wasReserved => {
+      if (wasReserved) {
+        this.router.navigate(['/comment']);
+        return;
+      }
+
+      alert("This room havent been reserved recently");
+    });
   }
 
   ngOnInit() {
