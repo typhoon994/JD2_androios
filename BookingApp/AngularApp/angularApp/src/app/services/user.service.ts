@@ -9,6 +9,7 @@ import { Place } from '../models/place.model'
 import { User } from '../models/User.model'
 import { Region } from '../models/region.model'
 import { Login } from '../models/login.model'
+import { Comment } from '../models/comment.model'
 
 import 'rxjs/add/operator/toPromise';
 
@@ -18,20 +19,22 @@ export class UserService {
   private apiUrl = 'http://localhost:54042/api/accommodations';
   private loginUrl = 'http://localhost:54042/oauth/token';
   private roomsUrl = 'http://localhost:54042/api/rooms/'
-  private roomReservationsUrl = 'http://localhost:54042/api/roomReservations/'
+  private roomReservationsUrl = 'http://localhost:54042/api/roomReservations'
   private placesUrl = 'http://localhost:54042/api/places'
   private managersUrl = 'http://localhost:54042/api/managers'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
   private usersUrl = 'http://localhost:54042/api/Appusers'
   private regionsUrl = 'http://localhost:54042/api/regions/'
+  private commentsUrl = 'http://localhost:54042/api/comments'
+
 
   constructor(private http: Http) { }
 
   wasRoomReseverd(roomId :number, username :string) : Promise<boolean> {
-    return this.http.get(this.roomReservationsUrl+"?$filter=Room_id eq "+roomId+"$User_id eq "+username)
+    return this.http.get(this.roomReservationsUrl+"?$expand=Room,AppUser&$filter=Room/Id eq "+roomId+"and AppUser/Username eq '"+username + "'")
           .toPromise()
-          .then(response => {
-              if (response.json().size() === 0)
+          .then(response => {       
+              if ((response.json() as RoomReservation[]).length === 0)
                 return false;
               
               return true;
@@ -207,6 +210,16 @@ export class UserService {
         return res.json() as RoomReservation;})
       .catch(this.handleError);
     
+  }
+
+  public createComment(comment : Comment) {
+    debugger
+    return this.http
+      .post(this.commentsUrl, JSON.stringify(comment), { headers: this.headers })
+      .toPromise()
+      .then(res => { 
+        return res.json() as Comment;})
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
