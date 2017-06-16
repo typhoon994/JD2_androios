@@ -83,6 +83,7 @@ namespace BookingApp.Controllers
 
             db.Rooms.Attach(roomReservations.Room);
             db.Accomondations.Attach(roomReservations.Room.accomodation);
+            db.AppUsers.Attach(roomReservations.AppUser);
 
             db.RoomReservations.Add(roomReservations);
             db.SaveChanges();

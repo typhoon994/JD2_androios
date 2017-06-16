@@ -30,8 +30,11 @@ export class RoomsComponent implements OnInit {
    });
 
     
+        this.userService.postRoom(room)
+          .then((room) => {
+            alert("Room sucessfuly added.");
+          });
 
-    this.userService.postRoom(room);
   }
 
     goBack()

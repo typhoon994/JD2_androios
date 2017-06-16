@@ -286,23 +286,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
-    <Compile Include="Migrations\201706070926490_Initial.cs" />
-    <Compile Include="Migrations\201706070926490_Initial.Designer.cs">
-      <DependentUpon>201706070926490_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706140711000_ModelChanges.cs" />
-    <Compile Include="Migrations\201706140711000_ModelChanges.Designer.cs">
-      <DependentUpon>201706140711000_ModelChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706140932334_updatedReservation2.cs" />
-    <Compile Include="Migrations\201706140932334_updatedReservation2.Designer.cs">
-      <DependentUpon>201706140932334_updatedReservation2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706151919081_user model fix.cs" />
-    <Compile Include="Migrations\201706151919081_user model fix.Designer.cs">
-      <DependentUpon>201706151919081_user model fix.cs</DependentUpon>
-
+    <Compile Include="Migrations\201706160748361_Modelupdates.cs" />
+    <Compile Include="Migrations\201706160748361_Modelupdates.Designer.cs">
+      <DependentUpon>201706160748361_Modelupdates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accommodation.cs" />
@@ -397,19 +383,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-
-    <EmbeddedResource Include="Migrations\201706070926490_Initial.resx">
-      <DependentUpon>201706070926490_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706140711000_ModelChanges.resx">
-      <DependentUpon>201706140711000_ModelChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706140932334_updatedReservation2.resx">
-      <DependentUpon>201706140932334_updatedReservation2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706151919081_user model fix.resx">
-      <DependentUpon>201706151919081_user model fix.cs</DependentUpon>
-
+    <EmbeddedResource Include="Migrations\201706160748361_Modelupdates.resx">
+      <DependentUpon>201706160748361_Modelupdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -104,10 +104,13 @@ namespace BookingApp.Migrations
             rr.Timestamp = DateTime.Now;
             rr.Room = room1;
 
+
             Models.AppUser user = new Models.AppUser();
             user.Username = "Zanklod";
             user.Password = "Vandam";
             user.Email = "zanklodvandambogotac@mailinator.com";
+
+            rr.AppUser = user;
 
             Models.AppUser user2 = new Models.AppUser();
             user2.Username = "user";
