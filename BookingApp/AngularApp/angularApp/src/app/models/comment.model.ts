@@ -14,7 +14,7 @@ export class Comment {
     public Grade: number,
     public Text: string,
     public User: User,
-    public Accommondation: Accommondation
+    public accomodation: Accommondation
    ) {
   }
 }

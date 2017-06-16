@@ -34,17 +34,11 @@ export class GetRoomsComponent implements OnInit {
     this.userService.getReservations()
       .then((reservations) => {
         this.reservations = reservations
-    
-
-
-
     let startDate = new Date((<HTMLInputElement>document.getElementById("startDate")).value);
     let endDate = new Date((<HTMLInputElement>document.getElementById("endDate")).value);
 
     let userString = localStorage.getItem('user');
     let user = JSON.parse(userString) as User;
-
-    debugger
 
     if (startDate > endDate) {
       alert("Please select proper date.");
@@ -80,8 +74,17 @@ export class GetRoomsComponent implements OnInit {
       });
   }
 
-  comment() {
-    this.router.navigate(['/comment'])
+  comment(room : Room) {
+    this.userService.wasRoomReseverd(room.Id, localStorage.getItem('username'))
+      .then(response => {
+          if (response) {
+             localStorage.setItem("acc", JSON.stringify(room.accomodation));
+             this.router.navigate(['/comment']);
+             return;
+          }
+
+          alert("Reserve a room first, then leave a comment");
+      });
   }
 
   ngOnInit() {

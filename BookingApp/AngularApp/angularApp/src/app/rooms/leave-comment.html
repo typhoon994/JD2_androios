@@ -1,9 +1,9 @@
 <p>Enter comment:</p>
 
-<p><textarea cols="50" name="comment" rows="20">
+<p><textarea cols="50" id="text" name="text" rows="20">
 </textarea></p>
 
-<p>Grade:&nbsp;<select name="Grade" size="1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></p>
+<p>Grade:&nbsp;<select id="grade" name="grade" size="1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></p>
 
-<p><input name="Submit" type="button" value="Submit" />&nbsp; &nbsp; &nbsp;<input name="back" type="button" value="Back" />&nbsp;&nbsp;<br />
+<p><input name="Submit" (click)="createComment()" type="button" value="Submit" />&nbsp; &nbsp; &nbsp;<input name="goBack" (click)="goBack()" type="button" value="Back" />&nbsp;&nbsp;<br />
 &nbsp;</p>
