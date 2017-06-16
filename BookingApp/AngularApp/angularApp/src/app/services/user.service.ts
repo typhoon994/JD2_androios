@@ -22,7 +22,7 @@ export class UserService {
   private placesUrl = 'http://localhost:54042/api/places'
   private managersUrl = 'http://localhost:54042/api/managers'
   private typesUrl = 'http://localhost:54042/api/AccommodationTypes/'
-  private usersUrl = 'http://localhost:54042/api/Appusers/'
+  private usersUrl = 'http://localhost:54042/api/Appusers'
   private regionsUrl = 'http://localhost:54042/api/regions/'
 
   constructor(private http: Http) { }
@@ -45,13 +45,12 @@ export class UserService {
       let hd = new Headers();
       hd.append("Content-Type", "application/x-www-form-urlencoded");
       options.headers = hd;
-
       return this.http.post(this.loginUrl,
           body, 
           options)
           .toPromise()
           .then(data => {
-            debugger
+
              localStorage.setItem("token", data.json().access_token);
              localStorage.setItem("role", data.headers.get("role"));
              localStorage.setItem("username", login.username);
@@ -61,12 +60,13 @@ export class UserService {
   }
 
  getUser(username : string, token: String): Promise<User> {
-    return this.http.get(this.usersUrl+"?$filter=username eq "+username)
+   debugger
+    return this.http.get(this.usersUrl+"?$filter=Username eq '"+username + "'")
       .toPromise()
       .then(response => {
         debugger
           localStorage.setItem("email", response.json()[0].Email);
-          localStorage.setItem("user", response.json()[0]);
+          localStorage.setItem("user", JSON.stringify(response.json()[0]));
           return response.json() as User;})
       .catch(this.handleError);
   }

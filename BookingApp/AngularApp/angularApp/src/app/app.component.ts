@@ -48,6 +48,8 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
+
+
   logOut(){ 
     this.authService.logOut();
     this.router.navigate(['']);

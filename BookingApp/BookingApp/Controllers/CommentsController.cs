@@ -80,7 +80,6 @@ namespace BookingApp.Controllers
             }
             db.Accomondations.Attach(comment.accomodation);
             db.AppUsers.Attach(comment.user);
-
             db.Comments.Add(comment);
             db.SaveChanges();
 

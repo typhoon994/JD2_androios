@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoomReservation } from '../models/roomreservation.model';
 import { Room } from '../models/room.model';
 import { UserService } from '../services/user.service';
-
+import { User } from '../models/user.model';
 import {
   Router,
   ActivatedRoute
@@ -31,57 +31,57 @@ export class GetRoomsComponent implements OnInit {
   }
 
   reserve(room: Room) {
-this.userService.getReservations()
+    this.userService.getReservations()
       .then((reservations) => {
         this.reservations = reservations
-      });
+    
+
+
 
     let startDate = new Date((<HTMLInputElement>document.getElementById("startDate")).value);
     let endDate = new Date((<HTMLInputElement>document.getElementById("endDate")).value);
 
+    let userString = localStorage.getItem('user');
+    let user = JSON.parse(userString) as User;
+
+    debugger
+
     if (startDate > endDate) {
       alert("Please select proper date.");
+      return
     }
 
-    if (this.reservations.length == 0) 
-    {
-      var res: RoomReservation = new RoomReservation(endDate, startDate, startDate, room);
+    if (this.reservations.length == 0) {
+
+      var res: RoomReservation = new RoomReservation(endDate, startDate, startDate, room, user);
 
       this.userService.reserveRoom(res)
-          .then((accommondation) => {
-            alert("Room sucessfuly reserved.");
-          });
+        .then((accommondation) => {
+          alert("Room sucessfuly reserved.");
+        });
     }
-    
+
     for (let r of this.reservations) {
-    
+
 
       if (room.Id == r.Id && startDate < r.StartDate && startDate > r.EndDate && endDate > r.EndDate) {
-        var res: RoomReservation = new RoomReservation(endDate, startDate, startDate, room);
+        var res: RoomReservation = new RoomReservation(endDate, startDate, startDate, room, user);
 
         this.userService.reserveRoom(res)
           .then((accommondation) => {
             alert("Room sucessfuly reserved.");
           });
       }
-      else
-      {
+      else {
         alert("Room is already reserved in selected period.")
       }
     }
+
+      });
   }
 
-  comment(room : Room)
-  {
-    this.userService.wasRoomReseverd(room.Id, localStorage.getItem("username"))
-    .then(wasReserved => {
-      if (wasReserved) {
-        this.router.navigate(['/comment']);
-        return;
-      }
-
-      alert("This room havent been reserved recently");
-    });
+  comment() {
+    this.router.navigate(['/comment'])
   }
 
   ngOnInit() {

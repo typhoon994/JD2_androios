@@ -7,13 +7,13 @@ namespace BookingApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class usermodelfix : IMigrationMetadata
+    public sealed partial class Modelupdates : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(usermodelfix));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Modelupdates));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706151919081_user model fix"; }
+            get { return "201706160748361_Modelupdates"; }
         }
         
         string IMigrationMetadata.Source
