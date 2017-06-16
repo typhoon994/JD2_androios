@@ -1,4 +1,5 @@
 <title></title>
+<div id="details">
 <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
 	<caption>
 		<p>&nbsp;</p>
@@ -16,9 +17,12 @@
 		</tr>
 	</tbody>
 </table>
+</div>
 
-<p><input name="addAccomodation" [hidden]="isUserNotManager()" (click)="addAccomodation()" type="button" value="Add accomodation" /> &nbsp; &nbsp;&nbsp;
-	<input name="approveAccomodation" [hidden]="isUserNotAdmin()" (click)="approveAccomodation()" type="button" value="Approve accomodation" />&nbsp; &nbsp;&nbsp;
-	<input name="reserveRoom" [hidden]="isNotUser()" (click)="reserveRoom()" type="button" value="Reserve a room" />​</p>
-<p><input name="addRooms" [hidden]="isUserNotManager()" (click)="addRooms()" type="button" value="Add rooms" /></p>
-<p><input name="manageManagers" [hidden]="isUserNotAdmin()" (click)="manageManagers()" type="button" value="Edit managers" /></p>
+<div>
+<p><input id="b1" md-raised-button color="primary" name="addAccomodation" [hidden]="isUserNotManager()" (click)="addAccomodation()" type="button"  value="Add accomodation" /> &nbsp; &nbsp;&nbsp;</p>
+<p>	<input id="b2"  md-raised-button color="primary"name="approveAccomodation" [hidden]="isUserNotAdmin()" (click)="approveAccomodation()" type="button" value="Approve accomodation" />&nbsp; &nbsp;&nbsp;</p>
+<p>	<input id="b3" type="button"  md-raised-button color="primary" name="reserveRoom" [hidden]="isNotUser()" (click)="reserveRoom()"  value="Reserve a room" />​</p>
+<p><input id="b4" md-raised-button color="primary" name="addRooms" [hidden]="isUserNotManager()" (click)="addRooms()" type="button" value="Add rooms" /></p>
+<p><input  id="b5" md-raised-button color="primary" name="manageManagers" [hidden]="isUserNotAdmin()" (click)="manageManagers()" type="button" value="Edit managers" /></p>
+</div>

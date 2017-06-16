@@ -17,6 +17,9 @@ import { GetManagers } from './managers/getmanagers';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
+import { MaterialModule } from '@angular/material';
+
+
 import { LoggedInGuard } from './logged-in.guard'
 
 const ChildRoutes = [
@@ -48,12 +51,14 @@ const Routes = [
     RoomsComponent,
     GetRoomsComponent,
     GetManagers,
-    CommentComponent,
+    CommentComponent
+  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+      MaterialModule,
     RouterModule.forRoot(Routes)
   ],
   providers: [AuthService, LoggedInGuard, UserService],//!LoggedInGuard also has to be included in providers!

@@ -1,25 +1,37 @@
-<h3>
-  {{title}}
-  </h3>
-  <html>
+<html>
+
 <head>
-	<title></title>
+
+  <title>
+    <h3>Login</h3>
+  </title>
 </head>
+
 <body>
 
-<form #f="ngForm" (ngSubmit)="logIn(f.value, f)">
-<p [hidden]="isLoggedIn()">Username:&nbsp;<input maxlength="10" name="username" ngModel type="text" /></p>
-<p [hidden]="isLoggedIn()">Password: &nbsp;<input maxlength="10" name="password" ngModel type="password" /></p>
-<div *ngIf="!isLoggedIn()">
-    <button type="submit">Log In!</button>
-  </div>
-  <div *ngIf="isLoggedIn()">
-    <button type="submit">Log Out!</button>
-  </div>
-</form>
+  <md-toolbar color="primary">
 
+    <span>BookingApp project </span>
+
+    <div *ngIf="isLoggedIn()">
+
+      <button md-button type="submit" (click)=logOut()>Log Out!</button>
+    </div>
+  </md-toolbar>
+  <div id="display">
+
+    <form #f="ngForm" (ngSubmit)="logIn(f.value, f)">
+      <p [hidden]="isLoggedIn()">Username:&nbsp;<input maxlength="10" name="username" ngModel type="text" /></p>
+      <p [hidden]="isLoggedIn()">Password: &nbsp;<input maxlength="10" name="password" ngModel type="password" /></p>
+      <div *ngIf="!isLoggedIn()">
+        <button id="login" md-raised-button color="primary" type="submit">Log In!</button>
+      </div>
+
+
+    </form>
+  </div>
 </body>
+
 </html>
 
 <router-outlet></router-outlet>
-
