@@ -9,7 +9,10 @@ export class AuthService{
     }
 
     logOut(): void{
+        localStorage.removeItem("role");
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        localStorage.removeItem("email");
     }
 
     isLoggedIn(): boolean{
