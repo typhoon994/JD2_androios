@@ -1,20 +1,32 @@
 <h2>Available accommondations</h2>
- <table class="accommondation" style="height: 21px;" width="427" border="1">
+<table class="accommondation" style="height: 21px;" width="427" border="1">
   <tbody>
-  <tr *ngFor="let accommondation of accommondations">
-   
+    <tr *ngFor="let accommondation of accommondations">
 
 
-  <td style="text-align:center;">{{accommondation.Name}}</td>
-  <!-- Name -->
-  <td style="text-align:center;">{{accommondation.Address}}</td>
-  <!-- Address -->
-  <!-- Grade -->
-  <td style="text-align:center;"><button type="button"> See details</button></td>
-  <!-- Details -->
-  <td style="text-align:center;" [hidden]="accommondation.Approved">
-  <button type="button" (click)="approveAccommondation(accommondation)">Approve</button>
-  </td>
-<!-- Approve  --></tr>
-</tbody>
+
+      <td style="text-align:center;">{{accommondation.Name}}</td>
+      <!-- Name -->
+      <td style="text-align:center;">{{accommondation.Address}}</td>
+      <!-- Address -->
+      <!-- Grade -->
+      <td>
+        <button type="button" (onClick) = "selectAcc(accommondation)"> See details</button>
+      </td>
+      <!-- Details -->
+      <td style="text-align:center;" [hidden]="accommondation.Approved">
+        <button type="button" (click)="approveAccommondation(accommondation)">Approve</button>
+      </td>
+      <!-- Approve  -->
+    </tr>
+  </tbody>
 </table>
+
+<!-- Ovde ce ici neki spejsing, ili najbolje ovo da bude sa desne strane ekrana i da
+ bude hidden ako nema selektovanog acc, da ne komplikujemo-->
+<!-- Prosiricu ga sa svim poljima, sad testiram mape -->
+<div class="container" [hidden] = "selected === null">
+  <agm-map [latitude]="selected.Latitude" [longitude]="selected.Longitude">
+    <agm-marker [latitude]="selected.Latitude" [longitude]="selected.Longitude"></agm-marker>
+  </agm-map>
+</div>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -58,8 +59,11 @@ const Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-      MaterialModule,
-    RouterModule.forRoot(Routes)
+    MaterialModule,
+    RouterModule.forRoot(Routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDRBj4jP_bu_sQf61wpgMA5H0HcTwffjqE'
+    })
   ],
   providers: [AuthService, LoggedInGuard, UserService],//!LoggedInGuard also has to be included in providers!
   bootstrap: [AppComponent]

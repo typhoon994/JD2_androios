@@ -6,12 +6,14 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-accommondation',
   templateUrl: './accommondation.component.html',
+  styleUrls: ['./accommondation.component.css'],
 })
 
 
 export class AccomondationComponent implements OnInit {
     accommondations : Accommondation[];
     hidden: boolean = true;
+    selected : Accommondation;
     
   constructor(private userService: UserService) { 
   }
@@ -34,5 +36,9 @@ export class AccomondationComponent implements OnInit {
      .then((accommondation) => {   
         // todo: handle response
       });
+  }
+
+  selectAcc(acc : Accommondation) {
+    this.selected = acc;
   }
 }
