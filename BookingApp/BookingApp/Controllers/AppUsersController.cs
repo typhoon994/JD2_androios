@@ -19,6 +19,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/AppUsers
+        [Authorize]
         [EnableQuery]
         public IQueryable<AppUser> GetAppUsers()
         {
@@ -28,6 +29,7 @@ namespace BookingApp.Controllers
 
 
         // GET: api/AppUsers/5
+        [Authorize]
         [ResponseType(typeof(AppUser))]
         public IHttpActionResult GetAppUser(int id)
         {
@@ -41,6 +43,7 @@ namespace BookingApp.Controllers
         }
 
         // PUT: api/AppUsers/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAppUser(int id, AppUser appUser)
         {
@@ -76,6 +79,7 @@ namespace BookingApp.Controllers
         }
 
         // POST: api/AppUsers
+        [Authorize]
         [ResponseType(typeof(AppUser))]
         public IHttpActionResult PostAppUser(AppUser appUser)
         {
@@ -91,6 +95,7 @@ namespace BookingApp.Controllers
         }
 
         // DELETE: api/AppUsers/5
+        [Authorize]
         [ResponseType(typeof(AppUser))]
         public IHttpActionResult DeleteAppUser(int id)
         {

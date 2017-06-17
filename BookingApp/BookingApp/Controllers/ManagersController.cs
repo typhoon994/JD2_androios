@@ -17,6 +17,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/Managers
+        [Authorize]
         public IQueryable<AppUser> GetManagers()
         {
             var role = db.Roles.SingleOrDefault(m => m.Name == "Manager");

@@ -19,12 +19,14 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/Comments
+        [Authorize]
         public IQueryable<Comment> GetComments()
         {
             return db.Comments;
         }
 
         // GET: api/Comments/5
+        [Authorize]
         [ResponseType(typeof(Comment))]
         public IHttpActionResult GetComment(int id)
         {
@@ -38,6 +40,7 @@ namespace BookingApp.Controllers
         }
 
         // PUT: api/Comments/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutComment(int id, Comment comment)
         {
@@ -73,6 +76,7 @@ namespace BookingApp.Controllers
         }
 
         // POST: api/Comments
+        [Authorize]
         [ResponseType(typeof(Comment))]
         public IHttpActionResult PostComment(Comment comment)
         {
@@ -89,6 +93,7 @@ namespace BookingApp.Controllers
         }
 
         // DELETE: api/Comments/5
+        [Authorize]
         [ResponseType(typeof(Comment))]
         public IHttpActionResult DeleteComment(int id)
         {

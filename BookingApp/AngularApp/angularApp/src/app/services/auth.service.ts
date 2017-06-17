@@ -5,7 +5,7 @@ export class AuthService{
     }
 
     logIn(): void{      
-        localStorage.setItem("token","myToken");
+        
     }
 
     logOut(): void{

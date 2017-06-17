@@ -17,6 +17,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/AccommodationTypes
+        [Authorize]
         public IQueryable<AccommodationType> GetAccomondationTypes()
         {
             return db.AccomondationTypes;

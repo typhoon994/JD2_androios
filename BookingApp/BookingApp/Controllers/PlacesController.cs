@@ -19,6 +19,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/Places
+        [Authorize]
         [EnableQuery]
         public IQueryable<Place> GetPlaces()
         {

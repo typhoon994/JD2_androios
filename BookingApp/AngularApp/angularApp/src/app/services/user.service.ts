@@ -31,7 +31,9 @@ export class UserService {
   constructor(private http: Http) { }
 
   wasRoomReseverd(roomId :number, username :string) : Promise<boolean> {
-    return this.http.get(this.roomReservationsUrl+"?$expand=Room,AppUser&$filter=Room/Id eq "+roomId+"and AppUser/Username eq '"+username + "'")
+    let head = this.getAuthHeader();
+    let url = this.roomReservationsUrl+"?$expand=Room,AppUser&$filter=Room/Id eq "+roomId+"and AppUser/Username eq '"+username + "'";
+    return this.http.get(url, { headers : head })
           .toPromise()
           .then(response => {       
               if ((response.json() as RoomReservation[]).length === 0)
@@ -43,8 +45,8 @@ export class UserService {
   }
 
  login(login : Login): Promise<User> {
-      var body = "username="+login.username+"&password="+login.password+"&grant_type=password";
-      var options = new RequestOptions();
+      let body = "username="+login.username+"&password="+login.password+"&grant_type=password";
+      let options = new RequestOptions();
       let hd = new Headers();
       hd.append("Content-Type", "application/x-www-form-urlencoded");
       options.headers = hd;
@@ -53,7 +55,6 @@ export class UserService {
           options)
           .toPromise()
           .then(data => {
-
              localStorage.setItem("token", data.json().access_token);
              localStorage.setItem("role", data.headers.get("role"));
              localStorage.setItem("username", login.username);
@@ -63,11 +64,10 @@ export class UserService {
   }
 
  getUser(username : string, token: String): Promise<User> {
-   debugger
-    return this.http.get(this.usersUrl+"?$filter=Username eq '"+username + "'")
+    let head = this.getAuthHeader();
+    return this.http.get(this.usersUrl+"?$filter=Username eq '"+username + "'", { headers : head })
       .toPromise()
       .then(response => {
-        debugger
           localStorage.setItem("email", response.json()[0].Email);
           localStorage.setItem("user", JSON.stringify(response.json()[0]));
           return response.json() as User;})
@@ -76,7 +76,8 @@ export class UserService {
   
 
   getAccommondations(): Promise<Accommondation[]> {
-    return this.http.get(this.apiUrl+"?$expand=owner,place/region/country")
+    let head = this.getAuthHeader();
+    return this.http.get(this.apiUrl+"?$expand=owner,place/region/country", {headers : head})
       .toPromise()
       .then(response => {
           return response.json() as Accommondation[]; })
@@ -84,54 +85,55 @@ export class UserService {
   }
 
   getRooms(): Promise<Room[]> { 
-    return this.http.get(this.roomsUrl+"?$expand=accomodation/owner,accomodation/place/region/country")
+    let head = this.getAuthHeader();
+    return this.http.get(this.roomsUrl+"?$expand=accomodation/owner,accomodation/place/region/country",
+     { headers : head })
       .toPromise()
       .then(response => {
           return response.json() as Room[]; })
       .catch(this.handleError);
   }
 
-     getManagers(): Promise<User[]> { 
-    return this.http.get(this.managersUrl)
+  getManagers(): Promise<User[]> { 
+    let head = this.getAuthHeader();
+    return this.http.get(this.managersUrl, { headers : head })
       .toPromise()
       .then(response => {
-        
-          let managers:Array<User>;
-
-            
-          debugger
           return response.json() as User[]; })
       .catch(this.handleError);
   }
 
-    getUsers(): Promise<User[]> { 
-    return this.http.get(this.usersUrl)
+  getUsers(): Promise<User[]> { 
+    let head = this.getAuthHeader();
+    return this.http.get(this.usersUrl, {headers:head})
       .toPromise()
       .then(response => {
-          debugger
           return response.json() as User[]; })
       .catch(this.handleError);
   }
 
   getReservations(): Promise<RoomReservation[]> { 
-    return this.http.get(this.roomReservationsUrl+"?$expand=Room/accomodation/owner,Room/accomodation/place/region/country")
+    let head = this.getAuthHeader();
+    return this.http.get(this.roomReservationsUrl+"?$expand=Room/accomodation/owner,Room/accomodation/place/region/country",
+    { headers : head})
       .toPromise()
       .then(response => {
-          debugger
           return response.json() as RoomReservation[]; })
       .catch(this.handleError);
   }
 
   getPlaces(): Promise<Place[]> { 
-    return this.http.get(this.placesUrl+"?$expand=region/country")
+    let head = this.getAuthHeader();
+    return this.http.get(this.placesUrl+"?$expand=region/country", {headers : head})
       .toPromise()
       .then(response => {
           return response.json() as Place[]; })
       .catch(this.handleError);
   }
 
-    getTypes(): Promise<AccomodationType[]> { 
-    return this.http.get(this.typesUrl)
+  getTypes(): Promise<AccomodationType[]> { 
+    let head = this.getAuthHeader();
+    return this.http.get(this.typesUrl, {headers:head})
       .toPromise()
       .then(response => {
           return response.json() as AccomodationType[]; })
@@ -140,27 +142,18 @@ export class UserService {
 
 
   postAccomodation(accomodation: Accommondation): Promise<Accommondation> {
-
-       const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
+    let head = this.getAuthHeader();
     return this.http
-      .post(this.apiUrl, JSON.stringify(accomodation), { headers: headers })
+      .post(this.apiUrl, JSON.stringify(accomodation), { headers: head })
       .toPromise()
       .then(res => res.json() as Accommondation)
       .catch(this.handleError);
-    
   }
 
  postRoom(room: Room): Promise<Room> {
-
-       const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
+   let head = this.getAuthHeader();
     return this.http
-      .post(this.roomsUrl, JSON.stringify(room), { headers: headers })
+      .post(this.roomsUrl, JSON.stringify(room), { headers: head })
       .toPromise()
       .then(res => res.json() as Room)
       .catch(this.handleError);
@@ -168,54 +161,42 @@ export class UserService {
   }
 
   putAccomodation(accomodation: Accommondation): Promise<Accommondation> {
-       const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
+    let head = this.getAuthHeader();
     let url = `${this.apiUrl}/${accomodation.Id}`;
     return this.http
-      .put(url, JSON.stringify(accomodation), { headers: headers })
+      .put(url, JSON.stringify(accomodation), { headers: head })
       .toPromise()
-      .then(res => { debugger 
+      .then(res => { 
         return res.json() as Accommondation;})
       .catch(this.handleError);
-    
   }
 
-    putUser(user: User): Promise<User> {
-       const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
+  putUser(user: User): Promise<User> {
+    let head = this.getAuthHeader();
     let url = `${this.usersUrl}/${user.Id}`;
     return this.http
-      .put(url, JSON.stringify(user), { headers: headers })
+      .put(url, JSON.stringify(user), { headers: head })
       .toPromise()
-      .then(res => { debugger 
+      .then(res => { 
         return res.json() as User;})
       .catch(this.handleError);
-    
   }
 
- 
   reserveRoom(room: RoomReservation): Promise<RoomReservation> {
-       const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
+    let head = this.getAuthHeader();
     let url = `${this.roomReservationsUrl}`;
     return this.http
-      .post(url, JSON.stringify(room), { headers: headers })
+      .post(url, JSON.stringify(room), { headers: head })
       .toPromise()
-      .then(res => { debugger 
+      .then(res => { 
         return res.json() as RoomReservation;})
       .catch(this.handleError);
-    
   }
 
-  public createComment(comment : Comment) {
-    debugger
+ createComment(comment : Comment) {
+    let head = this.getAuthHeader();
     return this.http
-      .post(this.commentsUrl, JSON.stringify(comment), { headers: this.headers })
+      .post(this.commentsUrl, JSON.stringify(comment), { headers: head })
       .toPromise()
       .then(res => { 
         return res.json() as Comment;})
@@ -227,4 +208,9 @@ export class UserService {
     return Promise.reject(error.message || error);
   }
 
+  private getAuthHeader() : Headers {
+    let head = new Headers({'Content-Type': 'application/json'});
+    head.append("Authorization","Bearer " + localStorage.getItem("token"));
+    return head;
+  }
 }

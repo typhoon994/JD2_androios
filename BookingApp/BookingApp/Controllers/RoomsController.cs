@@ -19,6 +19,7 @@ namespace BookingApp.Controllers
         private BAContext db = new BAContext();
 
         // GET: api/Rooms
+        [Authorize]
         [EnableQuery(MaxExpansionDepth = 4)]
         public IQueryable<Room> GetRooms()
         {
