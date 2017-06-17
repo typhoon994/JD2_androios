@@ -12,6 +12,7 @@ import {
 @Component({
   selector: 'get-rooms',
   templateUrl: './getRooms.component.html',
+   styleUrls: ['./getRooms.component.css']
 })
 
 
@@ -39,8 +40,8 @@ export class GetRoomsComponent implements OnInit {
 
     let userString = localStorage.getItem('user');
     let user = JSON.parse(userString) as User;
-
-    if (startDate > endDate) {
+    debugger
+    if (startDate > endDate || startDate.toString() == "Invalid Date" || endDate.toString() == "Invalid Date") {
       alert("Please select proper date.");
       return
     }

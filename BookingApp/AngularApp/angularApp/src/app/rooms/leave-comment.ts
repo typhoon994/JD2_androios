@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'leave-comment',
   templateUrl: './leave-comment.html',
+  styleUrls: ['./leave-comment.css']
 })
 export class CommentComponent implements OnInit {
   private hasExtra : boolean;

@@ -17,6 +17,7 @@ import { UserService } from '../services/user.service'
 @Component({
   selector: 'add-accommondation',
   templateUrl: './add-accomodation.component.html',
+  styleUrls: ['./add-accomodation.component.css']
 })
 
 
@@ -33,27 +34,33 @@ export class AddAccomondationComponent implements OnInit {
   }
 
   createAccomodation(acc: Accommondation, form: NgForm) {
-
-    var placeElement = Number.parseInt((<HTMLInputElement>document.getElementById("placeDropDown")).value);
-    acc.Place = this.places[placeElement - 1];
-
-    var ownerElement = Number.parseInt((<HTMLInputElement>document.getElementById("ownerDropDown")).value);
-    acc.Owner = this.users[ownerElement - 1];
-
-    acc.Approved = false;
-
-    if (acc.Owner.Approved == true) {
-
-      this.userService.postAccomodation(acc).then(accomondation => {
-        acc = accomondation; // saved hero, w/ id if new
-        debugger
-        this.goBack
-        alert("Accomodation sucessfuly added.");
-      })
-        .catch(error => this.error = error);
+    debugger
+    if (acc.Name == null || acc.Address == null || acc.AverageGrade == null || acc.Description == null || acc.ImageUrl == null) {
+      alert("Please fill all fields.");
     }
-    else
-    { alert("User not allowed to add accomodations!") }
+    else {
+      var
+        placeElement = Number.parseInt((<HTMLInputElement>document.getElementById("placeDropDown")).value);
+      acc.Place = this.places[placeElement - 1];
+
+      var ownerElement = Number.parseInt((<HTMLInputElement>document.getElementById("ownerDropDown")).value);
+      acc.Owner = this.users[ownerElement - 1];
+
+      acc.Approved = false;
+
+      if (acc.Owner.Approved == true) {
+
+        this.userService.postAccomodation(acc).then(accomondation => {
+          acc = accomondation; // saved hero, w/ id if new
+          debugger
+          this.goBack
+          alert("Accomodation sucessfuly added.");
+        })
+          .catch(error => this.error = error);
+      }
+      else
+      { alert("User not allowed to add accomodations!") }
+    }
   }
 
   goBack() {

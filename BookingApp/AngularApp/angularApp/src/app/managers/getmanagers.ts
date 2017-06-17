@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-getmanagers',
   templateUrl: './getmanagers.html',
+   styleUrls: ['./getmanagers.css']
 })
 
 

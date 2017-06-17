@@ -1,4 +1,5 @@
-<h2>Available accommondations</h2>
+<h2 id="title">Available accommondations</h2>
+<div id="form">
 <table class="accommondation" style="height: 21px;" width="427" border="1">
   <tbody>
     <tr *ngFor="let accommondation of accommondations">
@@ -11,11 +12,11 @@
       <!-- Address -->
       <!-- Grade -->
       <td>
-        <button type="button" (onClick) = "selectAcc(accommondation)"> See details</button>
+        <button   (onClick) = "selectAcc(accommondation)"> See details</button>
       </td>
       <!-- Details -->
       <td style="text-align:center;" [hidden]="accommondation.Approved">
-        <button type="button" (click)="approveAccommondation(accommondation)">Approve</button>
+        <button  (click)="approveAccommondation(accommondation)">Approve</button>
       </td>
       <!-- Approve  -->
     </tr>
@@ -29,4 +30,5 @@
   <agm-map [latitude]="selected.Latitude" [longitude]="selected.Longitude">
     <agm-marker [latitude]="selected.Latitude" [longitude]="selected.Longitude"></agm-marker>
   </agm-map>
+</div>
 </div>

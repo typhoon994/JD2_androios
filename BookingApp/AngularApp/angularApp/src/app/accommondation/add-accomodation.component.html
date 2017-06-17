@@ -1,6 +1,7 @@
-<p>Accomodation:</p>
+<p id="title">Accomodation:</p>
 
-<form #f="ngForm" (ngSubmit)="createAccomodation(f.value, f)">
+<div id="form" >
+<form #f="ngForm"  (ngSubmit)="createAccomodation(f.value, f)">
 
 <table border="1" cellpadding="1" cellspacing="1" style="width: 300px;">
 	<tbody>
@@ -49,11 +50,13 @@
 		</tr>
 	</tbody>
 </table>
-<input name="addAccomodation" type="submit" value="Add accomodation" />​ 
-<input name="goBack" (click)="goBack()" type="button" value="Back" />
+<p></p>
+
+<button id ="b1" md-raised-button color="primary" name="addAccomodation" type="submit" value="" >​ Add accomodation</button>
+<button id = "b2" md-raised-button color="primary" name="goBack" (click)="goBack()"   > Back</button>
 
 </form>
-
+</div>
 &nbsp; &nbsp;
 
 

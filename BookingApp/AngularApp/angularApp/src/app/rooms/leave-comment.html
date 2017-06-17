@@ -1,9 +1,11 @@
-<p>Enter comment:</p>
+<h2 id="title">Enter comment:</h2>
 
+<div id="form">
 <p><textarea cols="50" id="text" name="text" rows="20">
 </textarea></p>
 
 <p>Grade:&nbsp;<select id="grade" name="grade" size="1"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></p>
 
-<p><input name="Submit" (click)="createComment()" type="button" value="Submit" />&nbsp; &nbsp; &nbsp;<input name="goBack" (click)="goBack()" type="button" value="Back" />&nbsp;&nbsp;<br />
+<p><button name="Submit" md-raised-button color="primary"  (click)="createComment()" >Submit</button>&nbsp; &nbsp; &nbsp;<button name="goBack" (click)="goBack()" md-raised-button color="primary" >Back</button>&nbsp;&nbsp;<br />
 &nbsp;</p>
+</div>

@@ -5,6 +5,8 @@
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
+   background-image: url("sea.jpg");
+   color:white;
 }
 
 md-card {
@@ -16,6 +18,14 @@ md-card {
 md-toolbar-row {
   justify-content: space-between;
 }
+
+#display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
 #login{
     height:35px; 
     width:100px; 
@@ -25,50 +35,11 @@ md-toolbar-row {
     left:35%;
 }
 
-#display {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
 
-#details {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
 
-#b1 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-#b2 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-#b3 {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-#b4 {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-#b5 {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
+
+
+
 .done {
   position: fixed;
   bottom: 20px;

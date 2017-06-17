@@ -1,0 +1,28 @@
+
+#title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#form {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#b1 {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#b2 {
+    position: absolute;
+    top: 155%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}

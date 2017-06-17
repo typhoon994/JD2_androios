@@ -1,4 +1,5 @@
-<h2>Managers</h2>
+<h2 id="title">Managers</h2>
+<div id="form">
  <table class="managers" style="height: 21px;" width="427" border="1">
   <tbody>
   <tr *ngFor="let manager of managers">
@@ -6,13 +7,14 @@
 
 
   <td style="text-align:center;">{{manager.Username}}</td>
-  <!-- Name -->
+ 
 
   <td [hidden]="manager.approved" style="text-align:center;" >
-  <button type="button"  (click)="denie(manager)">Denie</button>
+  <button md-raised-button color="primary" type="button"  (click)="denie(manager)">Denie</button>
   </td><td [hidden]="manager.approved" style="text-align:center;" >
-  <button type="button"  (click)="approve(manager)">Approve</button>
+  <button md-raised-button color="primary" type="button"  (click)="approve(manager)">Approve</button>
   </td>
   </tr>
 </tbody>
 </table>
+</div>
