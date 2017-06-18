@@ -13,8 +13,9 @@ import { UserService } from '../services/user.service';
 export class AccomondationComponent implements OnInit {
     accommondations : Accommondation[];
     hidden: boolean = true;
-    selected : Accommondation;
-    
+    selected : Accommondation = new Accommondation(1, "Test", "Test", "Test", "Test", 40.0, 30.0, "Test", true, null, 1, 1, null, null, null);
+    //shouldShowDetails : boolean = false;
+
   constructor(private userService: UserService) { 
   }
 
@@ -26,7 +27,7 @@ export class AccomondationComponent implements OnInit {
   ngOnInit() {
     this.userService.getAccommondations()
       .then((accommondations) => {   
-        debugger
+        this.selected = accommondations[0];
         this.accommondations = accommondations});
   }
 
@@ -40,5 +41,13 @@ export class AccomondationComponent implements OnInit {
 
   selectAcc(acc : Accommondation) {
     this.selected = acc;
+    //this.shouldShowDetails = this.selected !== acc;
+
+    // if (this.shouldShowDetails) {
+    //   this.selected = acc;
+    //   return;
+    // }
+
+    // this.selected = new Accommondation(1, "Test", "Test", "Test", "Test", 40.0, 30.0, "Test", true, null, 1, 1, null, null, null);
   }
 }

@@ -1,34 +1,39 @@
 <h2 id="title">Available accommondations</h2>
-<div id="form">
-<table class="accommondation" style="height: 21px;" width="427" border="1">
-  <tbody>
-    <tr *ngFor="let accommondation of accommondations">
 
+<body>
+  <div id="form">
+    <table class="accommondation" style="height: 21px;" width="600" border="1">
+      <tbody>
+        <tr *ngFor="let accommondation of accommondations">
+          <td style="text-align:center;">{{accommondation.Name}}</td>
+          <td style="text-align:center;">{{accommondation.Address}}</td>
+          <td  style="text-align:center;" >
+            <button (click)="selectAcc(accommondation)"> See details</button>
+          </td>
+          <td style="text-align:center;" [hidden]="accommondation.Approved">
+            <button (click)="approveAccommondation(accommondation)">Approve</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-
-      <td style="text-align:center;">{{accommondation.Name}}</td>
-      <!-- Name -->
-      <td style="text-align:center;">{{accommondation.Address}}</td>
-      <!-- Address -->
-      <!-- Grade -->
-      <td>
-        <button   (onClick) = "selectAcc(accommondation)"> See details</button>
-      </td>
-      <!-- Details -->
-      <td style="text-align:center;" [hidden]="accommondation.Approved">
-        <button  (click)="approveAccommondation(accommondation)">Approve</button>
-      </td>
-      <!-- Approve  -->
-    </tr>
-  </tbody>
-</table>
-
-<!-- Ovde ce ici neki spejsing, ili najbolje ovo da bude sa desne strane ekrana i da
- bude hidden ako nema selektovanog acc, da ne komplikujemo-->
-<!-- Prosiricu ga sa svim poljima, sad testiram mape -->
-<div class="container" [hidden] = "selected === null">
-  <agm-map [latitude]="selected.Latitude" [longitude]="selected.Longitude">
-    <agm-marker [latitude]="selected.Latitude" [longitude]="selected.Longitude"></agm-marker>
-  </agm-map>
-</div>
-</div>
+    <div id="details" class="container">
+      <h4>Details:</h4>
+      <table class="accommondation" style="height: 31px;" width="600" border="1">
+      <tbody>
+        <tr>
+          <td style="text-align:center;">{{selected.Name}}</td>
+          <td style="text-align:center;">{{selected.Description}}</td>
+          <td style="text-align:center;">{{selected.Address}}</td>
+          <td style="text-align:center;">{{selected.AverageGrade}}</td>
+          <td style="text-align:center;">{{selected.ImageURL}}</td>
+          <td style="text-align:center;">{{selected.owner.Username}}</td> 
+        </tr>
+      </tbody>
+    </table>
+      <agm-map [latitude]="selected.Latitude" [longitude]="selected.Longitude">
+        <agm-marker [latitude]="selected.Latitude" [longitude]="selected.Longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</body>

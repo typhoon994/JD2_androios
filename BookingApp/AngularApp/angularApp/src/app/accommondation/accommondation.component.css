@@ -10,5 +10,13 @@
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
+}
+
+agm-map {
+  height: 100px;
+}
+
+#details {
+  padding-top: 4cm;
 }
