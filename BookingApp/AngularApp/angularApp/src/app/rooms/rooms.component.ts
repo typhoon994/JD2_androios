@@ -21,8 +21,7 @@ export class RoomsComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   createRoom(room: Room, form: NgForm) {
-
-    
+    debugger
     if (room.RoomNumber == null || room.Description == null || room.PricePerNight == null || room.BedCount == null) {
       alert("Please fill all fields.");
     }
